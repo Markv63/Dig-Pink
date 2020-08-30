@@ -5,6 +5,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from '../about/about.component';
 import { HomepageComponent } from '../homepage/homepage.component';
 
+console.log("app-routing.component.ts display 1");
+
 const routes: Routes = [
   {
     path: '',

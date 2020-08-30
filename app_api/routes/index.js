@@ -1,18 +1,18 @@
 const express = require('express');
 const router = express.Router();
-//const ctrlLocations = require('../controllers/digpink');
+const ctrlLocations = require('../controllers/locations');
 //const ctrlReviews = require('../controllers/reviews');
 
 // tournament
 router
-  .route('/tournament')
-  //.get(ctrltournaments.locationsListByDistance)
-  //.post(ctrlTournaments.tournamentsCreate);
+  //.route('/locations')
+  //.get(ctrlLocations.locationsListByDistance)
+  //.get(ctrlLocations.tournamentsCreate);
   console.log("api index display 1")
  
 router
-  .route('/tournaments/:tournamentid')
-  //.get(ctrltournaments.tournamentsReadOne)
+  //.route('/locations/:tournamentid')
+  //.get(ctrLlocations.tournamentsReadOne)
   //.put(ctrlTournaments.tournamentsUpdateOne)
   //.delete(ctrlTournaments.tournamentsDeleteOne);
   console.log("api index display 2")

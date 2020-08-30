@@ -71,7 +71,7 @@ const schedulechema = new mongoose.Schema({
     }
 })    
     
-const memorialSchema = new mongoose.Schema({ 
+const memorialsSchema = new mongoose.Schema({ 
   honor: {
     type: String,
     required: true

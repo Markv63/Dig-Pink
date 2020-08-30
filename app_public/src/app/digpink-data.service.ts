@@ -12,9 +12,9 @@ export class DigpinkDataService {
   constructor (private http: HttpClient) { }
 
   
- //private apiBaseUrl = 'http://localhost:3000/api';  //local
+ private apiBaseUrl = 'http://localhost:3000/api';  //local
  //private apiBaseUrl = 'http://morning-cove-12019.herokuapp.com/api'; //prod
- private apiBaseUrl = environment.apiBaseUrl;  
+ //private apiBaseUrl = environment.apiBaseUrl;  
 
 
  public getTournament():  Promise<Tournament[]> {

@@ -12,6 +12,8 @@ export class Tournament {
   home:     string;
 }
 
+console.log("tournament.component.ts display 1");
+
 @Component({
   selector: 'app-tournament',
   templateUrl: './tournament.component.html',

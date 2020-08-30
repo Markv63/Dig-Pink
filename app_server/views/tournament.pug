@@ -4,14 +4,24 @@ block content
   .row.banner
     .col-12
       h1= pageHeader.title
-        //small &nbsp;#{pageHeader.strapline}
+        small &nbsp;   
+      //-h1 Dig Pink Tournament Sept 12, 2020
+      //-small &nbsp;#{pageHeader.strapline}
   .row
-    .col-8.col.md-8  
+    .col-12.col.md-8  
+    each location in locations
+      .card
+        .card-block
+          h4
+            a(href ="/location")= location.school
+            
+                 
       .error=message
-      //app-home-list
+
+      //-app-home-list
 
     .col-12.col-md-4
-      //p.lead= sidebar
+      //-p.lead= sidebar
 
 block scripts
   script()
