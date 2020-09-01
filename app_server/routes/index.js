@@ -7,7 +7,7 @@ const ctrlMemorials = require('../controllers/memorials');
 const ctrlSchedules = require('../controllers/schedules');
 
 //Locations pages
-router.get('/', ctrlLocations.tournament);
+//router.get('/', ctrlLocations.tournament);
 
 //memorial page - add in honors and memoirals
 router.get('/memorials', ctrlMemorials.memorials);

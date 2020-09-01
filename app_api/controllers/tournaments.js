@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const { Locked } = require('http-errors');
-const Loc = mongoose.model('Digpink');  // just changed, haven't created mongoose db yet.
+const Loc = mongoose.model('Tournament');  
 
 
 const schedulesCreate = (req, res) => {
@@ -8,8 +8,9 @@ const schedulesCreate = (req, res) => {
     time:     req.body.Time, // just the time ie. 4.:00pm  
     school:   req.body.school,
     opponent: req.body.opponent,
-    gym:      req.body.Gym, // do we want to split this apart? combine with time similar to loc8r openingtimes\closing times into 1, 2, 3, 4?
-    home:     req.body.home, // true\false - model after closed 
+    gym:      req.body.Gym, 
+    home:     req.body.home, // true\false 
+    visit:    req.body.visit, // true\false 
     },
      (err, location) => {
     if (err) {
@@ -25,7 +26,7 @@ const schedulesCreate = (req, res) => {
 };
 
 const schedulesReadOne = (req, res) => {   //return full schedule
-   sched 
+   Loc 
     .findById(req.params.scheduleid)
     .exec((err, schedule) => {
       if (!schedule) {
@@ -45,28 +46,28 @@ const schedulesReadOne = (req, res) => {   //return full schedule
     }});
 }; 
 
-/*const schedulesReadTwo = (req, res) => {   //future development to return based by parameter of only school
-   sched 
-    .findById(req.params.scheduleid)
-    .select('school name gym time')
-    .exec((err, schedule) => {
-      if (!schedule) {
-        return res
-          .status(404)
-          .json({
-            "message": "team schedule not found"
-          });
-      } else if (err) {
-        return res
-          .status(404)
-          .json(err);
-      } else  { 
-        return res
-          .status(200)
-          .json(schedule);
-    }});
-};*/ 
- 
+const schedulesReadTwo = (req, res) => {   //return full schedule
+  Loc 
+   .findById(req.params.scheduleid) 
+   .select('school')
+   .exec((err, schedule) => {
+     if (!schedule) {
+       return res
+         .status(404)
+         .json({
+           "message": "schedule not found"
+         });
+     } else if (err) {
+       return res
+         .status(404)
+         .json(err);
+     } else  { 
+       return res
+         .status(200)
+         .json(schedule);
+   }});
+}; 
+
 const schedulesUpdateOne = (req, res) => {  
   if (!req.params.scheduleid) {
     return res

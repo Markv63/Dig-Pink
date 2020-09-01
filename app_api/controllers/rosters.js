@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const { Locked } = require('http-errors');
 const Loc = mongoose.model('Tournament');  
 
-const memorialsCreate = (req, res) => {
+const rostersCreate = (req, res) => {
  Loc.create({
     name: req.body.honor,
     player: req.body.player,
@@ -15,22 +15,22 @@ const memorialsCreate = (req, res) => {
     } else {
       res
         .status(201)
-        .json(memorial);
+        .json(roster);
     };
   };
 
 
-const memorialsReadOne = (req, res) => { 
+const rostersReadOne = (req, res) => { 
  // console.log("api controller loc display 6");
 
   Loc 
-    .findById(req.params.memorialid)
-    .exec((err, memorial) => {
-      if (!memorial) {
+    .findById(req.params.rosterid)
+    .exec((err, roster) => {
+      if (!roster) {
         return res
           .status(404)
           .json({
-            "message": "memorial not found ReadOne"
+            "message": "roster not found ReadOne"
           });
       } else if (err) {
         return res
@@ -39,39 +39,39 @@ const memorialsReadOne = (req, res) => {
       } else  { 
         return res
           .status(200)
-          .json(memorial);
+          .json(roster);
     }});
 }; 
 
 
-const memorialsUpdateOne = (req, res) => {  
-  if (!req.params.memorialid) {
+const rostersUpdateOne = (req, res) => {  
+  if (!req.params.rosterid) {
     return res
       .status(404)
       .json({
-        "message":  "Not Found, memorialid is required"
+        "message":  "Not Found, rosterid is required"
       });
   }
   Loc
     .findById(req.params.memorialid)
     .select('')
-    .exec((err, memorial) => {
-      if (!memorial) {
+    .exec((err, roster) => {
+      if (!location) {
         return res
         .status(404)
         .json({
-          "message": "memorialid not found"
+          "message": "rosterid not found"
         });
       } else if (err) {
         return res
         .status(400)
         .json(err);
       }
-      memorial.name = req.body.name;
-      memorial.address = req.body.player
-      memorial.facilities = req.body.school;
+      roster.name = req.body.name;
+      roster.address = req.body.player
+      roster.facilities = req.body.school;
       
-      memorial.save((err, loc) => {
+      roster.save((err, loc) => {
         if (err)  {
           res
             .status(404)
@@ -87,12 +87,12 @@ const memorialsUpdateOne = (req, res) => {
   }; 
 
 
-const memorialsDeleteOne = (req, res) => {  
-  const {memorialid} = req.params;
-  if (memorialid) {
+const rostersDeleteOne = (req, res) => {  
+  const {rosterid} = req.params;
+  if (rosterid) {
     Loc
-      .findByIdAndRemove(memorialid)
-      .exec((err, memorial) => {
+      .findByIdAndRemove(rosterid)
+      .exec((err, roster) => {
    
           if (err) {
             return res
@@ -108,16 +108,16 @@ const memorialsDeleteOne = (req, res) => {
     res
       .status(404)
       .json({
-        "message" : "No memorial"
+        "message" : "No roster"
       });
   }
 };
 
 
   module.exports = {
-    memorialsCreate,
-    memorialsReadOne,
-    memorialsUpdateOne,
-    memorialsDeleteOne
+    rostersCreate,
+    rostersReadOne,
+    rostersUpdateOne,
+    rostersDeleteOne
   };
   

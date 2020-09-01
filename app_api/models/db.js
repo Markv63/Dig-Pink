@@ -49,4 +49,4 @@ process.on('SIGTERM', () => {
     });
 });
 connect();
-require('./schedules');
+require('./tournaments');
