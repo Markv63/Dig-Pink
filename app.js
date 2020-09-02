@@ -6,15 +6,17 @@ const logger = require('morgan');
 //const favicon = require('serve-favicon');
 require('./app_api/models/db');
 
-const indexRouter = require('./app_server/routes/index');
+//const indexRouter = require('./app_server/routes/index');
 const apiRouter = require('./app_api/routes/index');
+const { allowedNodeEnvironmentFlags } = require('process');
 //const usersRouter = require('./app_server/routes/users');
 
 const app = express();
 
 // view engine setup
-//app.set('views', path.join(__dirname, 'app_server', 'views'));
-app.set('views', path.join(__dirname, 'app_api', 'views'));
+app.set('views', path.join(__dirname, 'app_server', 'views'));
+//app.set('views', path.join(__dirname, 'app_public', 'build'));
+//app.set('views', path.join(__dirname, 'app_api', 'views'));
 app.set('view engine', 'pug');
 
 app.use(logger('dev'));
@@ -22,11 +24,21 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'app_public', 'build')));
 
+app.use('/api', (req, res, next) => {
+  console.log("app.js display 1");
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
+});
 
-app.use('/', indexRouter);
+//app.use('/', indexRouter);
 app.use('/api', apiRouter);
 //app.use('/users', usersRouter);
+app.get(/(\/about) | (\/location\/[a-z0-9]{24})/, function(req, res, next) {
+  res.sendFile(path.join(__dirname, 'app_public', 'build', 'index.html'));
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

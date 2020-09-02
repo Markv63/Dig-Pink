@@ -16,4 +16,4 @@ const memorialsSchema = new mongoose.Schema({
   })
 
 
-  mongoose.model('Tournament', memorialsSchema);
+  mongoose.model('Memorial', memorialsSchema);

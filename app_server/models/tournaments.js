@@ -1,5 +1,11 @@
 const mongoose = require('mongoose');
 
+const participantSchema = new mongoose.Schema ({
+  school: {
+    type: String,
+    required: true 
+  }
+});
 
 const rosterSchema = new mongoose.Schema ({
   school: {

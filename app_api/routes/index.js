@@ -4,11 +4,14 @@ const router = express.Router();
 const ctrlMemorials = require('../controllers/memorials');
 const ctrlTournaments = require('../controllers/tournaments');
 const ctrlRosters = require('../controllers/rosters');
+const ctrlParticipants = require('../controllers/participants');
 
 // tournament
 router
-  .route('/controllers/tournaments')
+  .route('/tournaments')
   .post(ctrlTournaments.schedulesCreate)
+  router  
+  .route('/tournaments/:scheduleid')
   .get(ctrlTournaments.schedulesReadOne)
   .put(ctrlTournaments.schedulesUpdateOne)
   .delete(ctrlTournaments.schedulesDeleteOne);
@@ -16,8 +19,10 @@ router
  
 // memorials  
 router
-  .route('/controllers/memorials')
+  .route('/memorials')
   .post(ctrlMemorials.memorialsCreate)  
+  router  
+  .route('/memorials/:memorialid')  
   .get(ctrlMemorials.memorialsReadOne)
   .put(ctrlMemorials.memorialsUpdateOne)
   .delete(ctrlMemorials.memorialsDeleteOne);
@@ -25,8 +30,10 @@ router
 
 // roster  
 router
-  .route('/controllers/rosters')
+  .route('/rosters')
   .post(ctrlRosters.rostersCreate)  
+  router  
+  .route('/rosters/:rostersid')  
   .get(ctrlRosters.rostersReadOne)
   .put(ctrlRosters.rostersUpdateOne)
   .delete(ctrlRosters.rostersDeleteOne);
@@ -34,28 +41,15 @@ router
 
   // participants  
 router
-.route('/controllers/tournaments')
-//.get(ctrlTournaments.schedulesReadTwo)
+.route('/partcipants')
+.post(ctrlParticipants.participantsCreate)  
+router  
+.route('/participants/:participantid')
+.get(ctrlParticipants.participantsReadOne)
+.put(ctrlParticipants.participantsUpdateOne)
+.delete(ctrlParticipants.participantsDeleteOne);
+
 console.log("api index display 3")
 
-
 module.exports = router;
-
-/*const ctrlLocations = require('../controllers/locations');
-const ctrlOthers = require('../controllers/others');
-const ctrlMemorials = require('../controllers/memorials');
-const ctrlSchedules = require('../controllers/schedules');
-
-//Locations pages
-router.get('/', ctrlLocations.tournament);
-
-//memorial page - add in honors and memoirals
-router.get('/memorials', ctrlMemorials.memorials);
-
-//schedule page - add in honors and memoirals
-router.get('/schedules', ctrlSchedules.schedules);*/
-
-
-/*other pages - info on Side Out*/
-/*router.get('/about', ctrlOthers.about);*/
 

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const dbURI = `mongodb://localhost/dig-pink`;
+const dbURI = `mongodb://localhost/tournament`;
 
 mongoose.connect(dbURI, {useNewUrlParser: true});
 

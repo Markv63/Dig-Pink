@@ -9,16 +9,8 @@ block content
       //-small &nbsp;#{pageHeader.strapline}
   .row
     .col-12.col.md-8  
-    each location in locations
-      .card
-        .card-block
-          h4
-            a(href ="/location")= location.school
-            
-                 
       .error=message
-
-      //-app-home-list
+      app-participants
 
     .col-12.col-md-4
       //-p.lead= sidebar
@@ -28,6 +20,6 @@ block scripts
   script()
   script()
 
-  script(src='build/runtime.e227d1a0e31cbccbf8ec.js')
-  script(src='build/polyfills.a4021de53358bb0fec14.js')
-  script(src='build/main.6cc7ea14090d63233af8.js')
+  //- script(src='build/runtime.e227d1a0e31cbccbf8ec.js')
+  //- script(src='build/polyfills.a4021de53358bb0fec14.js')
+  //- script(src='build/main.6cc7ea14090d63233af8.js')

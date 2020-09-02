@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const { Locked } = require('http-errors');
 const Loc = mongoose.model('Tournament');  
 
+console.log("api control mem display 1");
 
 const schedulesCreate = (req, res) => {
  Loc.create({
@@ -46,7 +47,7 @@ const schedulesReadOne = (req, res) => {   //return full schedule
     }});
 }; 
 
-const schedulesReadTwo = (req, res) => {   //return full schedule
+const schedulesReadTwo = (req, res) => {    
   Loc 
    .findById(req.params.scheduleid) 
    .select('school')
@@ -142,6 +143,7 @@ const schedulesDeleteOne = (req, res) => {
 module.exports = {
   schedulesCreate,
   schedulesReadOne,
+  schedulesReadTwo,
   schedulesUpdateOne,
   schedulesDeleteOne
 };

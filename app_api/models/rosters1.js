@@ -20,3 +20,4 @@ const rosterSchema = new mongoose.Schema ({
   },
 });
 
+mongoose.model('Roster', rosterSchema);
