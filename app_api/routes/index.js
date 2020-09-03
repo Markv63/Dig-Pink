@@ -44,7 +44,7 @@ router
 .route('/partcipants')
 .post(ctrlParticipants.participantsCreate)  
 router  
-.route('/participants/:participantid')
+.route('/participants/:participantsid')
 .get(ctrlParticipants.participantsReadOne)
 .put(ctrlParticipants.participantsUpdateOne)
 .delete(ctrlParticipants.participantsDeleteOne);

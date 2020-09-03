@@ -13,7 +13,7 @@ export class HomepageComponent implements OnInit {
   }
   public pageContent = {
     header: {
-      title:  'Dig Pink',
+      title:  'North Kansas City School District Dig Pink Tournament Participants',
       strapline:  ''
       //strapline:  'NKC School District Side Out Foundation fund raiser'
     },

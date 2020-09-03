@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const { Locked } = require('http-errors');
-const Loc = mongoose.model('Tournament');  
+const Loc = mongoose.model('Roster');  
 
 const rostersCreate = (req, res) => {
  Loc.create({

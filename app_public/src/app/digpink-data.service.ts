@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Participant } from './participant/participant.component';
 import { Tournament } from './tournament/tournament.component';
+import { Memorial } from './memorial/memorial.component';
 import { environment } from '../environments/environment';
 
 
@@ -17,23 +19,29 @@ export class DigpinkDataService {
  private apiBaseUrl = environment.apiBaseUrl;  
 
 
- public getTournament():  Promise<Tournament[]> {
-  const url: string = `${this.apiBaseUrl}/tournaments`;   
+ public getParticpants():  Promise<Participant[]> {
+  const url: string = `${this.apiBaseUrl}/participant`;   
    return this.http
     .get(url)
     .toPromise ()
-    .then(response => response as Tournament[])
+    .then(response => response as Participant[])
     .catch();
     //.catch(this.handleError);
   }
-}
-    //console.log('data service, getLocations', lat, lng);
 
-  
-  
- 
-/*private handleError(error: any) : Promise<any> {
+
+public getMemorials():  Promise<Memorial[]> {
+  const url: string = `${this.apiBaseUrl}/memorial`;   
+   return this.http
+    .get(url)
+    .toPromise ()
+    .then(response => response as Memorial[])
+    .catch();
+    //.catch(this.handleError);
+  }
+
+private handleError(error: any) : Promise<any> {
   console.error('Something has gone wrong', error);
   return Promise.reject(error.message || error);
   }
-}*/
+}

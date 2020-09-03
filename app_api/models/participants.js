@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 
-const participantschema = new mongoose.Schema({ 
+const participantsSchema = new mongoose.Schema({ 
   school: {
     type: String,
     required: true

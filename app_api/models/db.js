@@ -50,8 +50,21 @@ process.on('SIGTERM', () => {
 });
 connect();
 require(
-  './tournaments',
-  './memorials',
-  '/rosters',
+  './tournaments'
+);
+require(
+ './memorials'
+);
+require( 
+'./rosters'
+);
+require(
   './participants'
 );
+
+/*require(
+  './tournaments',
+  './memorials',
+  './rosters',
+  './participants'
+);*/

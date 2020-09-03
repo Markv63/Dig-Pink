@@ -1,5 +1,13 @@
 <app-page-header [content]="pageContent.header"></app-page-header>
 <div class="row">
     <div class="col-12 col-lg-8" [innerHTML]="pageContent.content | htmlLineBreaks"></div>
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+        <a href="https://side-out.org/donate/" routerLinkActive="active" class="nav-link">Donations</a>
+        <a href="memorial" routerLinkActive="active" class="nav-link">
+              Order Merchandise 
+          </a>            
+        </li>
+      </ul>
 </div>
 

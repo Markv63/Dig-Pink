@@ -1,0 +1,14 @@
+<!-- div class="card" *ngFor="let participant of participants"></div -->
+<div class="card" *ngFor="let participant of participants">
+    <div class = "card-block">
+        <h4>
+            <!-- a href="/participants/5f4ec387688cb978036c1918">{{school}}</a -->
+            <a href="/participants/{{participant._id}}">{{participant.school}}</a>
+            <small>$nbsp;
+            </small>
+            <span class="badge badge-pill badge-default float-right"></span>
+        </h4>
+    </div>
+</div>
+
+

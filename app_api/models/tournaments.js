@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
-const participantschema = new mongoose.Schema({ 
+/*const participantschema = new mongoose.Schema({ 
   school: {
     type: String,
     required: true
   }
-})   
+})*/   
 
 const tournamentsSchema = new mongoose.Schema({ 
   time: {
@@ -70,3 +70,4 @@ const memorialsSchema = new mongoose.Schema({
 
 
 mongoose.model('Tournament', tournamentsSchema);
+

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const { Locked } = require('http-errors');
-const Loc = mongoose.model('Tournament');  
+const Loc = mongoose.model('Participant');  
 
 console.log("api control part display 1");
 
@@ -25,7 +25,7 @@ const participantsReadOne = (req, res) => {
     console.log("api control part display 2");
       
    Loc 
-    .findById(req.params.schoolid)
+    .findById(req.params.participantid)
     .exec((err, school) => {
       if (!school) {
         return res

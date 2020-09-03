@@ -13,6 +13,8 @@ import { MemorialComponent } from './memorial/memorial.component';
 import { FrameworkComponent } from './framework/framework.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { PageHeaderComponent } from './page-header/page-header.component';
+import { ParticipantComponent } from './participant/participant.component';
+import { HtmlLineBreaksPipe } from './html-line-breaks.pipe';
 //import { SidebarComponent } from './sidebar/sidebar.component';
 
 //console.log("app module ts display 1");
@@ -27,7 +29,9 @@ import { PageHeaderComponent } from './page-header/page-header.component';
   MemorialComponent,
   FrameworkComponent,
   HomepageComponent,
-  PageHeaderComponent
+  PageHeaderComponent,
+  ParticipantComponent,
+  HtmlLineBreaksPipe
   //SidebarComponent
   
   ],
