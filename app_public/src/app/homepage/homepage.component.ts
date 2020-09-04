@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+//import { Participant } from '../participant/participant.component';
 
 @Component({
   selector: 'app-homepage',

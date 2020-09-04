@@ -2,7 +2,7 @@ console.log("participant.component.ts display 1");
 
 import { Component, OnInit } from '@angular/core';
 import { DigpinkDataService } from '../digpink-data.service';
-//import { Participant } from '../participant/participant.component';
+
 
 export class Participant {
   _id:  String;
@@ -19,7 +19,8 @@ export class ParticipantComponent implements OnInit {
   constructor(  
     private digpinkDataservice: DigpinkDataService
   ) {}   
-  
+   
+  school = 'Staley'
   public participants: Participant [];
 
   ngOnInit() {

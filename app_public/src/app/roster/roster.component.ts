@@ -1,4 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { DigpinkDataService } from '../digpink-data.service';
+
+export class Roster {
+  _id:  String;
+  school: String;
+  player: String;
+  class: String;
+  playerName: String;
+}
 
 @Component({
   selector: 'app-roster',
@@ -7,9 +16,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RosterComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private digpinkDataservice: DigpinkDataService
+  ) {}
+
+  public rosters: Roster [];
+  public message: string;
 
   ngOnInit(): void {
+    this.getRosters()
   }
 
+  private getRosters(): void {
+    this.digpinkDataservice
+      .getRosters()
+      .then(foundRosters => {
+        this.rosters = foundRosters;
+    })
+  }
+  private showError(error: any): void {
+    this.message = error.message;
+  }  
 }
