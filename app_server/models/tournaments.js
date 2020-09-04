@@ -1,40 +1,13 @@
 const mongoose = require('mongoose');
 
-const dateSchema = new mongoose.Schema ({
-    date: {
-        type: String,
-        //required: true
-    }
-})
-
-const homeSchema = new mongoose.Schema ({
-    home: {
-        name: String,
-        school: String
-    },
-        //required: true
-})
-
-const visitSchema = new mongoose.Schema ({
-    visit: {
-        name: String,
-        school: String,
-    },
-    //required: true
-})
-
-/*const venueSchema = new.mongoose.Schema ({
-    venue: {
-        type: String,
-        required: true
-    }
-})*/
+const participantSchema = new mongoose.Schema ({
+  school: {
+    type: String,
+    required: true 
+  }
+});
 
 const rosterSchema = new mongoose.Schema ({
-  name: {
-      type: String,
-      //required: true
-   },     
   school: {
     type: String,
     //required: true 
@@ -51,27 +24,36 @@ const rosterSchema = new mongoose.Schema ({
     type: Number
     //required: true
   },
-  /*createdOn: {
-    type: Year,
-    'default': Year.now
-  }*/
 });
 
-const schedulechema = new mongoose.Schema({ 
-    year: {
-      type: Number,
+const schedulesSchema = new mongoose.Schema({ 
+    team: {
+      type: String,
       required: true
     },
-    date: [dateSchema],
-    home: [homeSchema],
-    visit: [visitSchema],
+    time: {
+      type: String,
+      required: true
+  },
+    home: {
+      type: Boolean,
+      required: true
+  },
+    opponent: {
+      type: String,
+      required: true
+},
+    visit: {
+      type: Boolean,
+      required: true
+  },
     gym:    {
-        type:   String,
+        type:  String,
         required: true
     }
 })    
     
-const memorialSchema = new mongoose.Schema({ 
+const memorialsSchema = new mongoose.Schema({ 
   honor: {
     type: String,
     required: true
@@ -87,4 +69,4 @@ const memorialSchema = new mongoose.Schema({
   })
 
 
-//mongoose.model('DigPink', digpinkSchema);
+mongoose.model('DigPink', schedulesSchema);

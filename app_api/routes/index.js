@@ -1,31 +1,55 @@
 const express = require('express');
 const router = express.Router();
-//const ctrlLocations = require('../controllers/digpink');
-//const ctrlReviews = require('../controllers/reviews');
+//const ctrlLocations = require('../controllers/locations');
+const ctrlMemorials = require('../controllers/memorials');
+const ctrlTournaments = require('../controllers/tournaments');
+const ctrlRosters = require('../controllers/rosters');
+const ctrlParticipants = require('../controllers/participants');
 
 // tournament
 router
-  .route('/tournament')
-  //.get(ctrltournaments.locationsListByDistance)
-  //.post(ctrlTournaments.tournamentsCreate);
+  .route('/tournaments')
+  .post(ctrlTournaments.schedulesCreate)
+  router  
+  .route('/tournaments/:scheduleid')
+  .get(ctrlTournaments.schedulesReadOne)
+  .put(ctrlTournaments.schedulesUpdateOne)
+  .delete(ctrlTournaments.schedulesDeleteOne);
   console.log("api index display 1")
  
+// memorials  
 router
-  .route('/tournaments/:tournamentid')
-  //.get(ctrltournaments.tournamentsReadOne)
-  //.put(ctrlTournaments.tournamentsUpdateOne)
-  //.delete(ctrlTournaments.tournamentsDeleteOne);
+  .route('/memorials')
+  .post(ctrlMemorials.memorialsCreate)  
+  router  
+  .route('/memorials/:memorialid')  
+  .get(ctrlMemorials.memorialsReadOne)
+  .put(ctrlMemorials.memorialsUpdateOne)
+  .delete(ctrlMemorials.memorialsDeleteOne);
   console.log("api index display 2")
 
-// Reviews
-/*router
-  .route('/locations/:locationid/reviews')
-  .post(ctrlReviews.reviewsCreate);
-*/
-/*router
-  .route('/locations/:locationid/reviews/:reviewid')
-  .get(ctrlReviews.reviewsReadOne)
-  .put(ctrlReviews.reviewsUpdateOne)
-  .delete(ctrlReviews.reviewsDeleteOne);
-*/
+// roster  
+router
+  .route('/rosters')
+  .post(ctrlRosters.rostersCreate)  
+  router  
+  .route('/rosters/:rostersid')  
+  .get(ctrlRosters.rostersReadOne)
+  .put(ctrlRosters.rostersUpdateOne)
+  .delete(ctrlRosters.rostersDeleteOne);
+  console.log("api index display 2")
+
+  // participants  
+router
+.route('/partcipants')
+.post(ctrlParticipants.participantsCreate)  
+router  
+.route('/participants/:participantsid')
+.get(ctrlParticipants.participantsReadOne)
+.put(ctrlParticipants.participantsUpdateOne)
+.delete(ctrlParticipants.participantsDeleteOne);
+
+console.log("api index display 3")
+
 module.exports = router;
+

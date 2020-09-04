@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
-const dbURI = `mongodb://localhost/dig-pink`;
+const dbURI = `mongodb://localhost/tournament`;
 
 mongoose.connect(dbURI, {useNewUrlParser: true});
 
 const host = process.env.DB_HOST || '127.0.0.1';
 
-const dbURL = `mongodb://${host}/digpink`;
+//const dbURL = `mongodb://${host}/digpink`;
+
 
 //let host = process.env.DB_HOST || 'mongodb://127.0.0.1/dig-pink';
 //let dbURL = `${host}`;

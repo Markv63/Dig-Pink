@@ -4,20 +4,22 @@ block content
   .row.banner
     .col-12
       h1= pageHeader.title
-        //small &nbsp;#{pageHeader.strapline}
+        small &nbsp;   
+      //-h1 Dig Pink Tournament Sept 12, 2020
+      //-small &nbsp;#{pageHeader.strapline}
   .row
-    .col-8.col.md-8  
+    .col-12.col.md-8  
       .error=message
-      //app-home-list
+      app-participants
 
     .col-12.col-md-4
-      //p.lead= sidebar
+      //-p.lead= sidebar
 
 block scripts
   script()
   script()
   script()
 
-  script(src='build/runtime.e227d1a0e31cbccbf8ec.js')
-  script(src='build/polyfills.a4021de53358bb0fec14.js')
-  script(src='build/main.6cc7ea14090d63233af8.js')
+  //- script(src='build/runtime.e227d1a0e31cbccbf8ec.js')
+  //- script(src='build/polyfills.a4021de53358bb0fec14.js')
+  //- script(src='build/main.6cc7ea14090d63233af8.js')

@@ -17,5 +17,5 @@ public pageContent = {
     
   },
   content: ' Dig Pink is the Side Out Foundation fund raiser sponsered by the North Kansas City School District. The annual volleyball tournament is rotated between Staley, Winnetonka, Oak Park, and North Kansas City.'
-}
+  };
 }

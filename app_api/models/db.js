@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 //const host = process.env.DB_HOST || '127.0.0.1';
 //const dbURL = `mongodb://${host}/loc8r`;
 
-let host = process.env.DB_HOST || 'mongodb://127.0.0.1/loc8r';
+let host = process.env.DB_HOST || 'mongodb://127.0.0.1/digpink';
 let dbURL = `${host}`;
 //to run SIGNIT on windows - before event listeners
 const readLine = require ('readline');
@@ -49,4 +49,22 @@ process.on('SIGTERM', () => {
     });
 });
 connect();
-require('./schedules');
+require(
+  './tournaments'
+);
+require(
+ './memorials'
+);
+require( 
+'./rosters'
+);
+require(
+  './participants'
+);
+
+/*require(
+  './tournaments',
+  './memorials',
+  './rosters',
+  './participants'
+);*/

@@ -1,6 +1,40 @@
 const mongoose = require('mongoose');
 
-const playerSchema = new mongoose.Schema ({
+/*const participantschema = new mongoose.Schema({ 
+  school: {
+    type: String,
+    required: true
+  }
+})*/   
+
+const tournamentsSchema = new mongoose.Schema({ 
+  time: {
+    type: String,
+    required: true
+  },
+  team: { 
+    type: String,
+    required: true
+  },
+  home: {
+    type: Boolean,
+    required: true
+  },  
+  opponent: { 
+    type: String,
+    required: true
+  },
+  gym: { 
+    type: String,
+    required: true
+  },  
+  visitor: {
+    type: Boolean,
+    required: true
+  },
+})    
+
+const rosterSchema = new mongoose.Schema ({
   school: {
     type: String,
     required: true 
@@ -14,47 +48,12 @@ const playerSchema = new mongoose.Schema ({
     required: true
   },
   playerNumber: {
-    type: number,
+    type: Number,
     required: true
   },
 });
 
-const rosterSchema = new mongoose.Schema ({
-  school: {
-      type: String,
-      required: true
-   },     
-  team: {
-    type: String,
-    required: true 
-  },
-  player: [playerSchema],
-});
-
-const schedulechema = new mongoose.Schema({ 
-  time: {
-    type: string,
-    required: true
-  },
-  school: { 
-    type: string,
-    required: true
-  },
-  opponent: { 
-    type: string,
-    required: true
-  },
-  gym: { 
-    type: string,
-    required: true
-  },  
-  home: {
-    type: Boolean,
-    required: true
-  },
-})    
-
-const memorialSchema = new mongoose.Schema({ 
+const memorialsSchema = new mongoose.Schema({ 
   honor: {
     type: String,
     required: true
@@ -70,4 +69,5 @@ const memorialSchema = new mongoose.Schema({
   })
 
 
-//mongoose.model('DigPink', digpinkSchema);
+mongoose.model('Tournament', tournamentsSchema);
+

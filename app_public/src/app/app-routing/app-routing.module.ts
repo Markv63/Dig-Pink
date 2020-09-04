@@ -4,6 +4,9 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AboutComponent } from '../about/about.component';
 import { HomepageComponent } from '../homepage/homepage.component';
+import { MemorialComponent } from '../memorial/memorial.component';
+
+console.log("app-routing.component.ts display 1");
 
 const routes: Routes = [
   {
@@ -14,6 +17,10 @@ const routes: Routes = [
     path: 'about',
     component: AboutComponent
   },
+  {
+  path: 'memorial',
+  component: MemorialComponent
+  }
 ];
 
 @NgModule({
