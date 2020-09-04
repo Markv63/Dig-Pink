@@ -23,7 +23,7 @@ const participantsCreate = (req, res) => {
 
 const participantsReadOne = (req, res) => {  
     console.log("api control part display 2");
-      
+    console.log(participantsid);  
    Loc 
     .findById(req.params.participantid)
     .exec((err, school) => {

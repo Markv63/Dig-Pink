@@ -1,13 +1,24 @@
-<app-page-header [content]="pageContent.header"></app-page-header>
-<div class="row">
-    <div class="col-12 col-lg-8" [innerHTML]="pageContent.content"></div>
-</div>
-
+<!-- app-page-header [content]="pageContent.header"></app-page-header -->
+<!-- div class"error">{{message}}</div -->
+<div class="error">{{message}}</div>
+<p> memorial page</p>
 <div class="card" *ngFor="let memorial of memorials">
     <div class = "card-block">
         <h4>
-            <!-- a href="/participants/5f4ec387688cb978036c1918">{{school}}</a -->
-            <a href="/memorials/{{memorial._id}}">{{memorial.school}}</a>
+          <p class="individual">{{memorial.honor}}</p> 
+          <small>$nbsp;
+          </small>
+          <small>$nbsp;
+          </small>
+          <p class="player">{{memorial.player}}</p> 
+          <small>$nbsp;
+          </small>
+          <small>$nbsp;
+          </small>
+      <p class="school">{{memorial.school}}</p> 
+            <a href="staley">staley link</a>
+            <!-- a href="/memorials/{{memorial._id}}">{{memorial.honor}}</a -->
+  
             <small>$nbsp;
             </small>
             <span class="badge badge-pill badge-default float-right"></span>

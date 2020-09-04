@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DigpinkDataService } from '../digpink-data.service';
+//import { Memorial } from '../memorial/memorial.component';
 
 console.log("memorial.component.ts display 1");
 
@@ -15,27 +16,47 @@ export class Memorial {
   styleUrls: ['./memorial.component.css']
 })
 export class MemorialComponent implements OnInit {
-  @Input() memorial:  Memorial;
-
-  public newMemorial:  Memorial = {
-    honor: '',
-    player: '',
-    school: ''
-  };
-
-  public formVisible: boolean = false;
-  public formError: string;
-
-  
+    
   constructor(  
     private digpinkDataservice: DigpinkDataService
   ) {} 
-
-  public memorials: Memorial [];  
-
+ 
+  public memorials: Memorial[];  
+  public message: string;
+  
   ngOnInit() {
-    //this.getMemorials();
+   
   }
+
+  private getMemorials(): void {
+    this.digpinkDataservice
+      .getMemorials()
+      .then(foundMemorials => {
+        this.memorials = foundMemorials;
+      //.then(foundParticipants => this.particapants = foundParticipants);
+    });
+  }
+
+  private showError(error: any): void {
+    this.message = error.message;
+  } 
+}
+  
+  /*
+  public pageContent = {
+    header: {
+      title: 'Honors and Memorials for individuals affected by breast cancer',
+    },
+      content: 'staley ts',
+    };*/
+
+  
+
+  //public formVisible: boolean = false;
+  //public formError: string;
+  
+
+ 
  
 /*
   private formIsValid: boolean {
@@ -67,20 +88,13 @@ export class MemorialComponent implements OnInit {
     this.newMemorial.school = '';
   }*/
 
-  private getMemorials(): void {
-    this.digpinkDataservice
-      .getMemorials()
-      .then(foundMemorials => {
-        this.memorials = foundMemorials;
-      //.then(foundParticipants => this.particapants = foundParticipants);
-    });
-  }
 
-  public pageContent = {
+
+/*public pageContent = {
   header: {
-    title: 'Honors and Memorials for individuals affected by breast cancer',
+    title: 'About Dig Pink',
+    
   },
-    content: '',
+  content: ' Dig Pink is the Side Out Foundation fund raiser sponsered by the North Kansas City School District. The annual volleyball tournament is rotated between Staley, Winnetonka, Oak Park, and North Kansas City.'
   };
-}
-
+}*/

@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+//Fimport { RouterModule } from '@angular/router'
 import { AppRoutingModule } from './app-routing/app-routing.module';
 //import { AppComponent} from './app.component';
 import { TournamentComponent } from './tournament/tournament.component';
@@ -22,6 +22,7 @@ import { HtmlLineBreaksPipe } from './html-line-breaks.pipe';
 @NgModule({
   declarations: [
   //AppComponent,
+  ParticipantComponent,
   TournamentComponent,
   AboutComponent,
   RosterComponent,
@@ -30,7 +31,6 @@ import { HtmlLineBreaksPipe } from './html-line-breaks.pipe';
   FrameworkComponent,
   HomepageComponent,
   PageHeaderComponent,
-  ParticipantComponent,
   HtmlLineBreaksPipe
   //SidebarComponent
   

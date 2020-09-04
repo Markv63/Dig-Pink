@@ -5,6 +5,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from '../about/about.component';
 import { HomepageComponent } from '../homepage/homepage.component';
 import { MemorialComponent } from '../memorial/memorial.component';
+import { ParticipantComponent } from '../participant/participant.component';
+import { RosterComponent } from '../roster/roster.component';
 
 console.log("app-routing.component.ts display 1");
 
@@ -20,6 +22,14 @@ const routes: Routes = [
   {
   path: 'memorial',
   component: MemorialComponent
+  },
+  {
+    path: 'participant',
+    component: ParticipantComponent
+    },
+  {
+    path: 'roster',
+    component: RosterComponent
   }
 ];
 
