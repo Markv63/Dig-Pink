@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DigpinkDataService } from '../digpink-data.service';
-//import { Memorial } from '../memorial/memorial.component';
+
 
 console.log("memorial.component.ts display 1");
 
@@ -25,15 +25,16 @@ export class MemorialComponent implements OnInit {
   public message: string;
   
   ngOnInit() {
-   
+   this.getMemorials();
   }
-
+  
+  
   private getMemorials(): void {
     this.digpinkDataservice
       .getMemorials()
       .then(foundMemorials => {
         this.memorials = foundMemorials;
-      //.then(foundParticipants => this.particapants = foundParticipants);
+ 
     });
   }
 

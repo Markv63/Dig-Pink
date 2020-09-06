@@ -9,8 +9,8 @@ const ctrlParticipants = require('../controllers/participants');
 // tournament
 router
   .route('/tournaments')
-  .post(ctrlTournaments.schedulesCreate)
-  router  
+  .post(ctrlTournaments.schedulesCreate);
+router  
   .route('/tournaments/:scheduleid')
   .get(ctrlTournaments.schedulesReadOne)
   .put(ctrlTournaments.schedulesUpdateOne)
@@ -21,9 +21,9 @@ router
 router
   .route('/memorials')
   .post(ctrlMemorials.memorialsCreate)  
-  router  
+  .get(ctrlMemorials.getMemorials);
+router  
   .route('/memorials/:memorialid')  
-  .get(ctrlMemorials.memorialsReadOne)
   .put(ctrlMemorials.memorialsUpdateOne)
   .delete(ctrlMemorials.memorialsDeleteOne);
   console.log("api index display 2")
@@ -31,8 +31,8 @@ router
 // roster  
 router
   .route('/rosters')
-  .post(ctrlRosters.rostersCreate)  
-  router  
+  .post(ctrlRosters.rostersCreate);
+router  
   .route('/rosters/:rostersid')  
   .get(ctrlRosters.rostersReadOne)
   .put(ctrlRosters.rostersUpdateOne)
@@ -41,13 +41,13 @@ router
 
   // participants  
 router
-.route('/partcipants')
-.post(ctrlParticipants.participantsCreate)  
-router  
-.route('/participants/:participantsid')
-.get(ctrlParticipants.participantsReadOne)
-.put(ctrlParticipants.participantsUpdateOne)
-.delete(ctrlParticipants.participantsDeleteOne);
+  .route('/partcipants')
+  .post(ctrlParticipants.participantsCreate) 
+  .get(ctrlParticipants.getParticipants);
+ router  
+  .route('/participants/:participantsid')
+  .put(ctrlParticipants.participantsUpdateOne)
+  .delete(ctrlParticipants.participantsDeleteOne);
 
 console.log("api index display 3")
 

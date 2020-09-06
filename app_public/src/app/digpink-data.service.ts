@@ -21,7 +21,7 @@ export class DigpinkDataService {
 
 
  public getParticpants():  Promise<Participant[]> {
-  const url: string = `${this.apiBaseUrl}/participant`;   
+  const url: string = `${this.apiBaseUrl}/participants`;   
    return this.http
     .get(url)
     .toPromise ()
@@ -31,7 +31,7 @@ export class DigpinkDataService {
   }
 
   public getMemorials():  Promise<Memorial[]> {
-  const url: string = `${this.apiBaseUrl}/memorial`;   
+  const url: string = `${this.apiBaseUrl}/memorials`;   
    return this.http
     .get(url)
     .toPromise ()

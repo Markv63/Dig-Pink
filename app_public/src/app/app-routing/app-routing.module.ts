@@ -7,6 +7,7 @@ import { HomepageComponent } from '../homepage/homepage.component';
 import { MemorialComponent } from '../memorial/memorial.component';
 import { ParticipantComponent } from '../participant/participant.component';
 import { RosterComponent } from '../roster/roster.component';
+import { TournamentComponent } from '../tournament/tournament.component';
 
 console.log("app-routing.component.ts display 1");
 
@@ -20,8 +21,12 @@ const routes: Routes = [
     component: AboutComponent
   },
   {
-  path: 'memorial',
-  component: MemorialComponent
+    path: 'memorial',
+    component: MemorialComponent
+  },
+  {
+    path: 'tournament',
+    component: TournamentComponent
   },
   {
     path: 'participant',
@@ -31,6 +36,7 @@ const routes: Routes = [
     path: 'roster',
     component: RosterComponent
   }
+
 ];
 
 @NgModule({

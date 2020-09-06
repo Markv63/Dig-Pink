@@ -11,8 +11,8 @@ export class AboutComponent implements OnInit {
 
   ngOnInit() {
   }
-public pageContent = {
-  header: {
+  public pageContent = {
+   header: {
     title: 'About Dig Pink',
     
   },

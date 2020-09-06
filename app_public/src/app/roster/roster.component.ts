@@ -26,6 +26,13 @@ export class RosterComponent implements OnInit {
   ngOnInit(): void {
     this.getRosters()
   }
+  /*public pageContent = {
+    header: {
+     title: 'Rosters',
+     
+   },
+   content: ' Rosters for the schools'
+   };*/
 
   private getRosters(): void {
     this.digpinkDataservice

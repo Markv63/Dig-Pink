@@ -1,11 +1,8 @@
-console.log("participant.component.ts display 1");
-
 import { Component, OnInit } from '@angular/core';
 import { DigpinkDataService } from '../digpink-data.service';
 
 
 export class Participant {
-  _id:  String;
   school: String;
 }
 
@@ -20,9 +17,10 @@ export class ParticipantComponent implements OnInit {
     private digpinkDataservice: DigpinkDataService
   ) {}   
    
-  school = 'Staley'
+  
   public participants: Participant [];
-
+  public message: string;
+  
   ngOnInit() {
     this.getParticipants();
   }
@@ -32,10 +30,12 @@ export class ParticipantComponent implements OnInit {
       .getParticpants()
       .then(foundParticipants => {
         this.participants = foundParticipants;
-      //.then(foundParticipants => this.particapants = foundParticipants);
+      
     });
   }
-
+  private showError(error: any): void {
+    this.message = error.message;
+  } 
 }
 
 

@@ -27,7 +27,7 @@ export class TournamentComponent implements OnInit {
   ){}
 
   public tournaments: Tournament[];
-  //publice message:  string;
+  public message:  string;
 
   ngOnInit() {
   

@@ -1,0 +1,17 @@
+db.tournaments.save({
+time:	'4:00 pm',
+team:	'Oak Park C Team',
+home:	true,
+opponent:	'North Kansas City C Team',
+gym:	'Gym 2',
+visitor:	true
+})
+
+
+db.memorials.save({
+honor: 'Honoree 2',
+player:	'Player Player 2',
+school: 'Winnetonka'
+})
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
