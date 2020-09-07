@@ -17,6 +17,14 @@ export class Memorial {
 })
 export class MemorialComponent implements OnInit {
     
+  newMemorial:  Memorial = {
+    honor:  '',
+    player: '',
+    school: ''
+  };
+  public  formVisible: boolean = false
+  public  formError:   string;
+
   constructor(  
     private digpinkDataservice: DigpinkDataService
   ) {} 
@@ -28,7 +36,37 @@ export class MemorialComponent implements OnInit {
    this.getMemorials();
   }
   
+  private formIsValid(): boolean {
+    if (this.newMemorial.honor && this.newMemorial.player && this.newMemorial.school) {
+      return true;
+    } else {
+      return false;
+    }
+  }
   
+  public onMemorialSubmit(): void {
+    this.formError = '';
+    if(this.formIsValid()) {
+    this.digpinkDataservice.addMemorial(this.newMemorial)
+    .then((memorial:  Memorial) => {
+    let memorials = this.memorials;
+    memorials.unshift(memorial);
+    this.memorials = memorials;
+    this.resetAndHideMemorialForm();
+    })
+  } else {
+    this.formError = 'All fields requiied, please try again';
+    }
+  }
+
+  private resetAndHideMemorialForm(): void {
+    this.formVisible = false;
+    this.newMemorial.honor = '';
+    this.newMemorial.player = '';
+    this.newMemorial.school = ''; 
+    } 
+  
+
   private getMemorials(): void {
     this.digpinkDataservice
       .getMemorials()
@@ -51,46 +89,7 @@ export class MemorialComponent implements OnInit {
       content: 'staley ts',
     };*/
 
-  
-
-  //public formVisible: boolean = false;
-  //public formError: string;
-  
-
  
- 
-/*
-  private formIsValid: boolean {
-    if (this.newMemorial.honor && this.newMemorial.player && this.newMemorial.school) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  private onMemorialSubmit(): void {
-    this.formError ='';
-    if (this.formIsValid()) {
-      this.digpinkDataService.addMemorial(this.newMemorial)
-      .then((memorial: Memorial) => {
-      let memorials = this.memorial.slice(0);
-      this.memorial = memorials;
-      this.resetAndHideMemorialForm();
-    })
-  } else {
-    this.formError = 'All fields requiired, please try again';
-    }
-  }
-    
-  private resetAndHideMemorialForm(): void {
-    this.formVisible = false;
-    this.newMemorial.honor = '';
-    this.newMemorial.player = '';
-    this.newMemorial.school = '';
-  }*/
-
-
-
 /*public pageContent = {
   header: {
     title: 'About Dig Pink',

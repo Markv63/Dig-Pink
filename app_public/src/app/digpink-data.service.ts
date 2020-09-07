@@ -50,8 +50,17 @@ export class DigpinkDataService {
       //.catch(this.handleError);
     }
   
-private handleError(error: any) : Promise<any> {
-  console.error('Something has gone wrong', error);
-  return Promise.reject(error.message || error);
+  public addMemorial(formData: Memorial): Promise<Memorial> {
+    const url: string = `${this.apiBaseUrl}/memorials/`;
+    return this.http
+      .post(url, formData)
+      .toPromise ()
+      .then(response => response as Memorial)
+      .catch(this.handleError);
+  }
+
+  private handleError(error: any) : Promise<any> {
+   console.error('Something has gone wrong', error);
+   return Promise.reject(error.message || error);
   }
 }

@@ -14,9 +14,9 @@ const { allowedNodeEnvironmentFlags } = require('process');
 const app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'app_server', 'views'));
-//app.set('views', path.join(__dirname, 'app_public', 'build'));
-//app.set('views', path.join(__dirname, 'app_api', 'views'));
+//app.set('views', path.join(__dirname, 'app_server', 'views'));
+app.set('views', path.join(__dirname, 'app_public', 'build'));
+app.set('views', path.join(__dirname, 'app_api', 'views'));
 app.set('view engine', 'pug');
 
 app.use(logger('dev'));

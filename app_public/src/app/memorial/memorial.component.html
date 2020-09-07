@@ -1,17 +1,25 @@
 <div class="card" *ngFor="let memorial of memorials">
     <div class = "card-block">
         <h4>
-          <p class="individual">{{memorial.honor}}</p> 
-          &nbsp;
-          
-          &nbsp;
-          
-          <p class="player">{{memorial.player}}</p> 
-          &nbsp;
-          
-          &nbsp;
-          
-      <p class="school">{{memorial.school}}</p>
-    
+          <p class="individual">{{memorial.honor}}</p>
+          &nbsp;&nbsp;<p 
+          class="player">{{memorial.player}}</p>
+          &nbsp;&nbsp;<p 
+          class="school">{{memorial.school}}</p>
+    <div class="row">
+        <div class="col-12">
+           <div class="card card-primary memorial-card">
+               <div class="card-block">
+                   <button (click)="formVisible=true" class="btn btn-primary float-right">Add Memorial
+                   </button> 
+                   <div *ngIf="formVisible">
+                       <form (ngSubmit)="onReviewSubmit()">
+                           <
+                       </form>
+                   </div>
+               </div>
+           </div>    
+        </div>   
+    </div>
     
   
