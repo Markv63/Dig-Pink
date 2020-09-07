@@ -10,11 +10,42 @@
         <div class="col-12">
            <div class="card card-primary memorial-card">
                <div class="card-block">
-                   <button (click)="formVisible=true" class="btn btn-primary float-right">Add Memorial
+                   <button (click)="formVisible=true" class="btn btn-primary float-right">Add Honor or Memorial
                    </button> 
                    <div *ngIf="formVisible">
-                       <form (ngSubmit)="onReviewSubmit()">
-                           <
+                       <form (ngSubmit)="onMemorialSubmit()">
+                           <hr>
+                           <h4>Add your Honor or Memorial</h4>
+                           <div *ngIf="formError" class="alert alert-dnager" role ="alert">
+                               {{formError}}
+                           </div>
+                           <div class="form-group row">
+                               <label for="name" class="col-sm-2 col-form-label">Honoree</label>
+                               <div class="col-sm-10">
+                                   <input [(ngModel)]="newMemorial.honor" id='Honoree' required="required"
+                                   class="form-control">
+                               </div>
+                           </div>
+                           <div class="form-group row">
+                            <label for="name" class="col-sm-2 col-form-label">player</label>
+                            <div class="col-sm-10">
+                                <input [(ngModel)]="newMemorial.plater" id='Player' required="required"
+                                class="form-control">
+                            </div>
+                            <div class="form-group row">
+                                <label for="name" class="col-sm-2 col-form-label">School</label>
+                                <div class="col-sm-10">
+                                    <input [(ngModel)]="newMemorial.school" id='School' required="required"
+                                    class="form-control">
+                                </div>
+                            </div> 
+                            <div class ="form-group row">
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn primary float-right" style="margin-left:15px">Submit Honor\Memorial</button>
+                                    <button (click)="formVisible=false" type="button" class="btn btn-primary float-right">Cancel</button> 
+                                </div>   
+                            </div>                                             
+                        </div>
                        </form>
                    </div>
                </div>
