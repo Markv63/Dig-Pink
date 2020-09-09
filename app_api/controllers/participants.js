@@ -23,11 +23,11 @@ const participantsCreate = (req, res) => {
 const getParticipants = (req, res) => {
   Loc
     .find({}, function (err, participants) {
-      if (!memorials) {
+      if (!participants) {
         return res
           .status(404)
           .json({
-            "message":"Participant nto found"
+            "message":"Participant not found"
           });
         } else if (err) {
           return res 
@@ -67,7 +67,7 @@ const participantsUpdateOne = (req, res) => {
         .json(err);
       }
       participants.school = req.body.school;
-      participants.save((err, school) => {
+      participants.save((err, loc) => {
         if (err)  {
           res
             .status(404)
@@ -75,7 +75,7 @@ const participantsUpdateOne = (req, res) => {
         } else {
            res
              .status(200)
-             .json(sched);
+             .json(loc);
         }  
       });
      } 

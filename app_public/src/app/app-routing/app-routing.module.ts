@@ -25,13 +25,14 @@ const routes: Routes = [
     component: MemorialComponent
   },
   {
-    path: 'tournament',
-    component: TournamentComponent
-  },
-  {
     path: 'participant',
     component: ParticipantComponent
     },
+  {
+    path: 'tournament',
+    component: TournamentComponent
+  },
+
   {
     path: 'roster',
     component: RosterComponent

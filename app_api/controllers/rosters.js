@@ -4,9 +4,10 @@ const Loc = mongoose.model('Roster');
 
 const rostersCreate = (req, res) => {
  Loc.create({
-    name: req.body.honor,
-    player: req.body.player,
-    school:  req.body.school,
+    school:        req.body.school,
+    player:        req.body.player,
+    class:         req.body.class,
+    playerNumber:  req.body.playerNumber,
     })
    if (err) {
       res

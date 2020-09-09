@@ -2,86 +2,64 @@ const mongoose = require('mongoose');
 const { Locked } = require('http-errors');
 const Loc = mongoose.model('Tournament');  
 
-console.log("api control mem display 1");
+console.log("api control tourn display 1");
 
-const schedulesCreate = (req, res) => {
+const tournamentsCreate = (req, res) => {
  Loc.create({
-    time:     req.body.Time, // just the time ie. 4.:00pm  
-    school:   req.body.school,
+    time:     req.body.time, 
+    team:     req.body.team,
+    home:     req.body.home,
     opponent: req.body.opponent,
+    visitor:  req.body.visitor,
     gym:      req.body.Gym, 
-    home:     req.body.home, // true\false 
-    visit:    req.body.visit, // true\false 
-    },
-     (err, location) => {
+    })
     if (err) {
       res
-        .status(400)
-        .json(err);
+        .status(200)
+        .json({"success": "succes"});
     } else {
       res
         .status(201)
-        .json(schedule);
+        .json(tourament);
     };
-  });
-};
+  };
 
-const schedulesReadOne = (req, res) => {   //return full schedule
-   Loc 
-    .findById(req.params.scheduleid)
-    .exec((err, schedule) => {
-      if (!schedule) {
+
+const getTournaments = (req, res) => {
+  Loc
+    .find({}, function (err, tournaments) {
+      if (!tournaments) {
         return res
           .status(404)
           .json({
-            "message": "schedule not found"
+            "message": "Schedule not found get"
           });
       } else if (err) {
         return res
           .status(404)
           .json(err);
-      } else  { 
+      }
+      else {
         return res
           .status(200)
-          .json(schedule);
-    }});
-}; 
-
-const schedulesReadTwo = (req, res) => {    
-  Loc 
-   .findById(req.params.scheduleid) 
-   .select('school')
-   .exec((err, schedule) => {
-     if (!schedule) {
-       return res
-         .status(404)
-         .json({
-           "message": "schedule not found"
-         });
-     } else if (err) {
-       return res
-         .status(404)
-         .json(err);
-     } else  { 
-       return res
-         .status(200)
-         .json(schedule);
-   }});
-}; 
-
-const schedulesUpdateOne = (req, res) => {  
-  if (!req.params.scheduleid) {
+          .json(tournaments);
+      }
+    });
+}
+  
+const tournamentsUpdateOne = (req, res) => {  
+  if (!req.params.tournamentid) {
     return res
       .status(404)
       .json({
         "message":  "Not Found, scheduleid is required"
       });
   }
-  sched
-    .findById(req.params.scheduleid)
+  Loc
+    .findById(req.params.tournamentid)
     .select()
-    .exec((err, schedule) => {
-      if (!schedule) {
+    .exec((err, sched) => {
+      if (!tournament) {
         return res
         .status(404)
         .json({
@@ -92,12 +70,14 @@ const schedulesUpdateOne = (req, res) => {
         .status(400)
         .json(err);
       }
-      schedule.time = req.body.time;
-      schedule.school = req.body.school;
-      schedule.opponent = req.body.opponent;
+     })
+      tournament.time = req.body.time;
+      tournament.team = req.body.team;
+      tournament.home = req.body.home;
+      tournament.opponent = req.body.opponent;
+      schedule.visitor = req.body.visitor;
       schedule.gym = req.body.gym;
-      schedule.home = req.body.home;
-      schedule.save((err, sched) => {
+      schedule.save((err, Loc) => {
         if (err)  {
           res
             .status(404)
@@ -105,21 +85,21 @@ const schedulesUpdateOne = (req, res) => {
         } else {
            res
              .status(200)
-             .json(sched);
+             .json(tournament);
         }  
       });
-     } 
-    );
+     
+    
   }; 
 
 
-const schedulesDeleteOne = (req, res) => {  
-  const {schedulesid} = req.params;
-  if (schedulesid) {
+const tournamentsDeleteOne = (req, res) => {  
+  const {touramentsid} = req.params;
+  if (tournamentsid) {
     sched
-      .findByIdAndRemove(schedulesid)
+      .findByIdAndRemove(tournamentsid)
       
-      .exec((err, schedule) => {
+      .exec((err, tournament) => {
         
           if (err) {
             return res
@@ -141,9 +121,8 @@ const schedulesDeleteOne = (req, res) => {
 };
 
 module.exports = {
-  schedulesCreate,
-  schedulesReadOne,
-  schedulesReadTwo,
-  schedulesUpdateOne,
-  schedulesDeleteOne
+  tournamentsCreate,
+  tournamentsUpdateOne,
+  tournamentsDeleteOne,
+  getTournaments
 };

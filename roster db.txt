@@ -1,0 +1,6 @@
+db.rosters.save({
+school: "Staley V Team",
+player: "Player Player 31",
+class: "Senior",
+playerNumber: 3
+})

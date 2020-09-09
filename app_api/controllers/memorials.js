@@ -5,7 +5,7 @@ const Loc = mongoose.model('Memorial');
 
 
 const memorialsCreate = (req, res) => {
- 
+ console.log("api cont memor create 1")
   Loc.create({
     name: req.body.honor,
     player: req.body.player,
@@ -113,7 +113,7 @@ const memorialsDeleteOne = (req, res) => {
   }
 };
 
-
+console.log("api cont memor display 2")
 module.exports = {
   memorialsCreate,
   memorialsUpdateOne,

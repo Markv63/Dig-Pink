@@ -24,14 +24,14 @@ const tournamentsSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  gym: { 
-    type: String,
-    required: true
-  },  
   visitor: {
     type: Boolean,
     required: true
   },
+  gym: { 
+    type: String,
+    required: true
+  }
 })    
 
 const rosterSchema = new mongoose.Schema ({

@@ -1,56 +1,72 @@
-<div class="card" *ngFor="let memorial of memorials">
-    <div class = "card-block">
-        <h4>
-          <p class="individual">{{memorial.honor}}</p>
-          &nbsp;&nbsp;<p 
-          class="player">{{memorial.player}}</p>
-          &nbsp;&nbsp;<p 
-          class="school">{{memorial.school}}</p>
-    <div class="row">
-        <div class="col-12">
-           <div class="card card-primary memorial-card">
-               <div class="card-block">
-                   <button (click)="formVisible=true" class="btn btn-primary float-right">Add Honor or Memorial
-                   </button> 
-                   <div *ngIf="formVisible">
-                       <form (ngSubmit)="onMemorialSubmit()">
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<div class="row">
+    <div class="col-12">
+
+
+        <div class="card card-primary memorial-card">
+            <div class="card-block">
+                <button (click)="formVisible=true" class="btn btn-primary float-right">Add Honor or Memorial
+                </button> 
+                <div *ngIf="formVisible">
+                    <form (ngSubmit)="onMemorialSubmit()">
                            <hr>
                            <h4>Add your Honor or Memorial</h4>
-                           <div *ngIf="formError" class="alert alert-dnager" role ="alert">
+                        <div *ngIf="formError" class="alert alert-dnager" role ="alert">
                                {{formError}}
-                           </div>
-                           <div class="form-group row">
+                        </div>
+                        <div class="form-group row">
                                <label for="name" class="col-sm-2 col-form-label">Honoree</label>
-                               <div class="col-sm-10">
-                                   <input [(ngModel)]="newMemorial.honor" id='Honoree' required="required"
-                                   class="form-control">
-                               </div>
-                           </div>
-                           <div class="form-group row">
-                            <label for="name" class="col-sm-2 col-form-label">player</label>
                             <div class="col-sm-10">
-                                <input [(ngModel)]="newMemorial.plater" id='Player' required="required"
+                                <input [(ngModel)]="newMemorial.honor" id='Honoree' required="required"
+                                   class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="name" class="col-sm-2 col-form-label">Player</label>
+                            <div class="col-sm-10">
+                                <input [(ngModel)]="newMemorial.player" id='Player' required="required"
                                 class="form-control">
                             </div>
-                            <div class="form-group row">
-                                <label for="name" class="col-sm-2 col-form-label">School</label>
-                                <div class="col-sm-10">
-                                    <input [(ngModel)]="newMemorial.school" id='School' required="required"
-                                    class="form-control">
-                                </div>
-                            </div> 
+                        </div>    
+                        <div class="form-group row">
+                            <label for="name" class="col-sm-2 col-form-label">School</label>
+                            <div class="col-sm-10">
+                                <input [(ngModel)]="newMemorial.school" id='School' required="required"
+                                class="form-control">
+                            </div>
+                        </div> 
                             <div class ="form-group row">
                                 <div class="col-12">
-                                    <button type="submit" class="btn btn primary float-right" style="margin-left:15px">Submit Honor\Memorial</button>
+                                    <button type="submit" class="btn btn primary float-left" style="margin-left:15px">Submit Honor\Memorial</button>
                                     <button (click)="formVisible=false" type="button" class="btn btn-primary float-right">Cancel</button> 
                                 </div>   
                             </div>                                             
-                        </div>
-                       </form>
-                   </div>
-               </div>
-           </div>    
-        </div>   
-    </div>
-    
-  
+         
+                    </form>
+                </div>
+            </div>
+        </div>  
+        <div class="card" *ngFor="let memorial of memorials">
+            <div class = "card-block">
+                <h4>
+                    
+                  <span class="individual">{{memorial.honor}}</span>
+                  &nbsp;&nbsp;
+                  <span class="player">{{memorial.player}}</span>
+                  &nbsp;&nbsp;
+                  <span class="school">{{memorial.school}}</span>  
+            
+                </h4>         
+            </div>   
+        </div>
+    </div> 
+</div>            

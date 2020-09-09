@@ -58,6 +58,15 @@ export class DigpinkDataService {
       .then(response => response as Memorial)
       .catch(this.handleError);
   }
+  
+  public getTournaments(): Promise<Tournament[]> {
+    const url: string = `${this.apiBaseUrl}/tournaments/`;
+    return this.http
+      .get(url)
+      .toPromise ()
+      .then(response => response as Tournament)
+      .catch(this.handleError);
+  }
 
   private handleError(error: any) : Promise<any> {
    console.error('Something has gone wrong', error);

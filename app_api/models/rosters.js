@@ -1,11 +1,6 @@
 const mongoose = require('mongoose');
 
-
-const rosterSchema = new mongoose.Schema ({
-  school: {
-    type: String,
-    required: true 
-  },
+const playerSchema = new mongoose.Schema ({
   player:   {
     type: String,
     required: true
@@ -17,7 +12,16 @@ const rosterSchema = new mongoose.Schema ({
   playerNumber: {
     type: Number,
     required: true
-  },
+  }
 });
+
+const rosterSchema = new mongoose.Schema ({
+  school: {
+    type: String,
+    required: true 
+  },
+  player:  [playerSchema]
+});
+
 
 mongoose.model('Roster', rosterSchema);
