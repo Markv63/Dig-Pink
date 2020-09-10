@@ -2,24 +2,53 @@ const mongoose = require('mongoose');
 const { Locked } = require('http-errors');
 const Loc = mongoose.model('Memorial');
 
+console.log("api cont memor entry");
 
+const doAddMemorial = (req, res, location) => {
+
+  if (!memorial) {
+    res
+      .status(404)
+      .json({ "message": "Memorial not found" });
+  } else {
+    const { honor, player, school } = req.body;
+    memorial.push({
+      honor,
+      player,
+      school
+    });
+    memorial.save((err, memorial) => {
+      if (err) {
+        res
+          .status(400)
+          .json(err);
+      } else {
+        res
+          .status(201)
+          .json(thisReview);
+      }
+    });
+  }
+};
 
 const memorialsCreate = (req, res) => {
- console.log("api cont memor create 1")
+  console.log("api cont memor create 1");
   Loc.create({
-    name: req.body.honor,
+    honor: req.body.honor,
     player: req.body.player,
     school: req.body.school,
+
+  }, (err, memorial) => {
+    if (err) {
+      res
+        .status(400)
+        .json(err);
+    } else {
+      res
+        .status(201)
+        .json(memorial);
+    };
   })
-  if (err) {
-    res
-      .status(200)
-      .json({ "success": "success" });
-  } else {
-    res
-      .status(201)
-      .json(memorial);
-  };
 };
 
 const getMemorials = (req, res) => {

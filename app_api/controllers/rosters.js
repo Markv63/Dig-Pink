@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const { Locked } = require('http-errors');
 const Loc = mongoose.model('Roster');  
+//add data service
 
 const rostersCreate = (req, res) => {
  Loc.create({
@@ -19,13 +20,57 @@ const rostersCreate = (req, res) => {
         .json(roster);
     };
   };
+//get schoolbyid
+const getTeams = (req, res) => {
+  Loc
+    .find({}, function (err, team) {
+      if (!team) {
+        return res
+          .status(404)
+          .json({
+            "message":"Roster not found"
+          });
+        } else if (err) {
+          return res 
+            .status(404)
+            .json(err);
+        }
+        else {
+          return res
+            .status(200)
+            .json(teams);
+        }    
+      });
+} 
 
 
+ const getRosters = (req, res) => {
+    Loc
+      .find({}, function (err, rosters) {
+        if (!rosters) {
+          return res
+            .status(404)
+            .json({
+              "message":"Roster not found"
+            });
+          } else if (err) {
+            return res 
+              .status(404)
+              .json(err);
+          }
+          else {
+            return res
+              .status(200)
+              .json(rosters);
+          }    
+        });
+  } 
+  
 const rostersReadOne = (req, res) => { 
- // console.log("api controller loc display 6");
-
+  console.log("api controller loc display 6");
   Loc 
-    .findById(req.params.rosterid)
+  
+    .findById(req.params.rostersid)
     .exec((err, roster) => {
       if (!roster) {
         return res
@@ -119,6 +164,7 @@ const rostersDeleteOne = (req, res) => {
     rostersCreate,
     rostersReadOne,
     rostersUpdateOne,
-    rostersDeleteOne
+    rostersDeleteOne,
+    getRosters
   };
   

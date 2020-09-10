@@ -32,12 +32,10 @@ const routes: Routes = [
     path: 'tournament',
     component: TournamentComponent
   },
-
   {
     path: 'roster',
     component: RosterComponent
   }
-
 ];
 
 @NgModule({

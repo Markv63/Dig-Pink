@@ -1,12 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { DigpinkDataService } from '../digpink-data.service';
 
+export class Team {
+  teamName: String;
+  player: String;
+  class: String;
+  playerNumber: String;
+}
+
 export class Roster {
   _id:  String;
   school: String;
-  player: String;
-  class: String;
-  playerName: String;
+  teams: Team[];
+  //team: String;
+  //player: String;
+  //class: String;
+  //playerName: String;
 }
 
 @Component({

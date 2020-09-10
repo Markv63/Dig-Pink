@@ -1,13 +1,19 @@
 <!-- app-page-header [content]="pageContent.header"></app-page-header -->
-<small>$nbsp;</small>
-<small>$nbsp;</small>
-<small>$nbsp;</small>
-<p>roster works!</p>
-<small>$nbsp;</small>
-<small>$nbsp;</small>
-<small>$nbsp;</small>
-<p>roster works2</p>
-<small>$nbsp;</small>
-<small>$nbsp;</small>
-<small>$nbsp;</small>
-<p>roster works2</p>
+<small>&nbsp;</small>
+<small>&nbsp;</small>
+<small>&nbsp;</small>
+<small>&nbsp;</small>
+<small>&nbsp;</small>
+<small>&nbsp;</small>
+<div class="card" *ngFor="let roster of rosters">
+  <div class = "card-block">
+    <h4>
+      <a routerLink="/roster/{{roster._id}}">{{roster.school}}</a>
+    </h4>
+    <app-team [team]="roster.team"></app-team>  
+         
+  </div>
+</div>  
+    
+
+<!-- a routerLink="rosters" routerLinkActive="active" class="nav-link">{{roster.school}}</a -->
