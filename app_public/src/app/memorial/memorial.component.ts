@@ -81,20 +81,4 @@ export class MemorialComponent implements OnInit {
   } 
 }
   
-  /*
-  public pageContent = {
-    header: {
-      title: 'Honors and Memorials for individuals affected by breast cancer',
-    },
-      content: 'staley ts',
-    };*/
-
  
-/*public pageContent = {
-  header: {
-    title: 'About Dig Pink',
-    
-  },
-  content: ' Dig Pink is the Side Out Foundation fund raiser sponsered by the North Kansas City School District. The annual volleyball tournament is rotated between Staley, Winnetonka, Oak Park, and North Kansas City.'
-  };
-}*/

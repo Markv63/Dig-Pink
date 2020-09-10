@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-//const ctrlLocations = require('../controllers/locations');
+ 
 const ctrlMemorials = require('../controllers/memorials');
 const ctrlTournaments = require('../controllers/tournaments');
 const ctrlRosters = require('../controllers/rosters');
@@ -45,7 +45,8 @@ router
 router
   .route('/rosters')
   .post(ctrlRosters.rostersCreate)
-  //.get(ctrlRosters.getRoster);
+  .get(ctrlRosters.getRosters);
+  console.log("api index display 3");
 router  
   .route('/rosters/:rostersid')  
   .get(ctrlRosters.rostersReadOne)
@@ -53,7 +54,12 @@ router
   .delete(ctrlRosters.rostersDeleteOne);
   console.log("api index display 4");
 
- console.log("api index display 3");
+// team
+router
+  .route('/rosters/:rosterid/team')
+  //.post(ctrlRosters.rostersCreate)
+  //.get(ctrlRosters/teamid.getTeam);
+  //get(ctrlRosters/function) 
 
 module.exports = router;
 

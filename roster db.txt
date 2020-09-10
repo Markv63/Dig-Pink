@@ -4,3 +4,12 @@ player: "Player Player 31",
 class: "Senior",
 playerNumber: 3
 })
+
+db.tournaments.save({
+time: "4:00pm",
+team: "Staley C Team",
+home: "home",
+opponent: "Winnetonka C Team",
+vistor:	"Vistor",
+gym: "Staley Main gym"
+})

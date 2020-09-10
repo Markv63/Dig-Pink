@@ -41,7 +41,7 @@ export class DigpinkDataService {
   }
 
   public getRosters():  Promise<Roster[]> {
-    const url: string = `${this.apiBaseUrl}/roster`;   
+    const url: string = `${this.apiBaseUrl}/rosters/`;   
      return this.http
       .get(url)
       .toPromise ()
