@@ -14,10 +14,10 @@ export class HomepageComponent implements OnInit {
   }
   public pageContent = {
     header: {
-      title:  'North Kansas City School District Dig Pink Tournament Participants',
-      strapline:  ''
+      title:  'North Kansas City School District Dig Pink Tournament',
+      strapline:  '',
       //strapline:  'NKC School District Side Out Foundation fund raiser'
-    },
-    sidebar: 'do we want this?'
-  };
-}
+  sidebar: 'do we want this?',
+  content: 'Dig Pink is an annual fundraising event sponsored by the NKC School District volleyball teams'
+  }
+}};

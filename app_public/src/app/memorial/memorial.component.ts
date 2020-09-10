@@ -55,7 +55,7 @@ export class MemorialComponent implements OnInit {
     this.resetAndHideMemorialForm();
     })
   } else {
-    this.formError = 'All fields requiied, please try again';
+    this.formError = 'All fields required, please try again';
     }
   }
 
