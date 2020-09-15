@@ -17,8 +17,8 @@ export class HomepageComponent implements OnInit {
       title: 'North Kansas City School District Dig Pink Tournament',
       
     },
-      //strapline:  'NKC School District Side Out Foundation fund raiser'
-      sidebar: 'do we want this?',
-      content: 'Dig Pink is an annual fundraising event sponsored by the NKC School District volleyball teams'
+      //strapline:  'NKC School District Side Out Foundation fund raiser',
+      sidebar: 'Picture from last year'
+      //content: 'Dig Pink is an annual fundraising event sponsored by the NKC School District volleyball teams'
     }
 };
