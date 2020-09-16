@@ -1,4 +1,5 @@
-<!-- app-page-header [content]="pageContent.header"></app-page-header -->
+
+
 <small>&nbsp;</small>
 <small>&nbsp;</small>
 <small>&nbsp;</small>
@@ -11,9 +12,37 @@
       <a routerLink="/roster/{{roster._id}}">{{roster.school}}</a>
     </h4>
     <app-team [team]="roster.team"></app-team>  
-         
   </div>
 </div>  
+<ul class="navbar-nav mr-auto">
+   
+  
+   
+  <span>
+      <a href="https://giving.side-out.org/campaigns/16865" type="button" class="nav-link float-center">Donations for Oak Park</a>
+
+      <a href="https://oakparkdigpinkvolleyball.itemorder.com/" type="button" class="nav-link float-right">Apparel Store for Oak Park</a>
+  </span>
+  <span>    
+      <a href="https://giving.side-out.org/campaigns/16867" type="button" class="nav-link float-right">
+      Donations for Winnetonka</a> 
+      
+      <a href="https://winnetonkadigpinkvolleyball.itemorder.com/" type="button" class="nav-link float-right">Apparel Store for Winnetonka</a>          
+  </span>
+  <span>    
+      <a href="https://giving.side-out.org/campaigns/16866" type="button" class="nav-link float-right">
+      Donations for North Kansas City</a>  
     
+    <a href="https://nkcdigpinkvolleyball.itemorder.com/" type="button" class="nav-link float-right">
+      Apparel Store for North Kansas City</a>  
+  </span>
+  <span>  
+      <a href="https://giving.side-out.org/campaigns/16864"type="button" class="nav-link float-right">
+      Donations for Staley</a>        
+    
+    <a href="https://staleydigpinkvolleyball.itemorder.com/"type="button" class="nav-link float-right">Apparel Store for Staley</a>
+  </span>          
+   
+</ul>   
 
 <!-- a routerLink="rosters" routerLinkActive="active" class="nav-link">{{roster.school}}</a -->

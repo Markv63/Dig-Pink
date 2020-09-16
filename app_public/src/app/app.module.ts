@@ -15,8 +15,9 @@ import { HomepageComponent }    from './homepage/homepage.component';
 import { PageHeaderComponent }  from './page-header/page-header.component';
 import { ParticipantComponent } from './participant/participant.component';
 import { HtmlLineBreaksPipe }   from './html-line-breaks.pipe';
-import { TeamComponent } from './team/team.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
+import { TeamComponent }        from './team/team.component';
+import { SidebarComponent }     from './sidebar/sidebar.component';
+//import { EarliestFirstPipe }    from './earliest-first.pipe';
 
 //console.log("app module ts display 1");
 
@@ -34,7 +35,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
   PageHeaderComponent,
   HtmlLineBreaksPipe,
   TeamComponent,
-  SidebarComponent
+  SidebarComponent,
+  //EarliestFirstPipe
   
   ],
 

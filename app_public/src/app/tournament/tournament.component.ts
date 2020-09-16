@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DigpinkDataService } from '../digpink-data.service';
 
 console.log("tourn component ts display 1")
 
 export class Tournament {
-  time:     number;
-  team:     string;
-  home:     boolean;
-  opponent: string;
-  visitor:  boolean;
-  gym:      string;
+  time:     String;
+  team:     String;
+  home:     String;
+  opponent: String;
+  visitor:  String;
+  gym:      String;
 }
 
 console.log("tournament.component.ts display 1");
@@ -22,6 +22,15 @@ console.log("tournament.component.ts display 1");
 
 export class TournamentComponent implements OnInit {
 
+  newTournament:  Tournament = {
+    time:  '',
+    team: '',
+    home: 'Home',
+    opponent: '',
+    visitor: 'Visitor',
+    gym:  ''
+  };
+  
   constructor(
     private digpinkDataService: DigpinkDataService 
   ){}

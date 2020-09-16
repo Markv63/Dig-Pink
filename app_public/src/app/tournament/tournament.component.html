@@ -1,4 +1,4 @@
-<div class="card" *ngFor="let tournament of tournaments">
+<div class="card" *ngFor="let tournament of tournaments"> 
   <div class = "card-block">
     <h4>
       <!-- a href="/tournments/{{tournaments.school}}">{{tournaments.school}}</a -->  
@@ -7,18 +7,20 @@
       &nbsp;
       &nbsp;
       <p> </p> 
-
-      <span class="time">{{tournament.time}}</span>
+      <!-- div ng-repeat="x in tournaments | orderBy: 'time'" -->
+    
+      <span class="tournamentTme">{{tournament.time}}</span>
       &nbsp;&nbsp;&nbsp; 
-      <span class="team">{{tournament.team}}</span>
+      <span class="tournamentTeam">{{tournament.team}}</span>
       &nbsp;&nbsp;&nbsp;
-      <span class="home">{{tournament.home}}</span>
+      <span class="tournamentHome">{{tournament.home}}</span>
       &nbsp;&nbsp;&nbsp;
-      <span class="opponent">{{tournament.opponent}}</span>
+      <span class="tournamentOpponent">{{tournament.opponent}}</span>
       &nbsp;&nbsp;&nbsp;
-      <span class="visitor">{{tournament.visitor}}</span>
+      <span class="tournamentVisitor">{{tournament.visitor}}</span>
       &nbsp;&nbsp;&nbsp;  
-      <span class="gym">{{tournament.gym}}</span>
+      <span class="tournamentGym">{{tournament.gym}}</span>
+      <!-- /div -->
     </h4>
   </div> 
 </div>

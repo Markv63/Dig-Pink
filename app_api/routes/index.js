@@ -1,18 +1,19 @@
 const express = require('express');
 const router = express.Router();
  
-const ctrlMemorials = require('../controllers/memorials');
-const ctrlTournaments = require('../controllers/tournaments');
-const ctrlRosters = require('../controllers/rosters');
+const ctrlMemorials    = require('../controllers/memorials');
+const ctrlTournaments  = require('../controllers/tournaments');
+const ctrlRosters      = require('../controllers/rosters');
 const ctrlParticipants = require('../controllers/participants');
-console.log("api index display 8", router);
+const ctrlTeams        = require('../controllers/teams');
+//console.log("api index display 8", router);
 
   // participants  
   router
     .route('/participants')
     .post(ctrlParticipants.participantsCreate) 
     .get(ctrlParticipants.getParticipants);
-  console.log("api index display 6", router);
+  //console.log("api index display 6", router);
  router  
    .route('/participants/:participantsid')
    .put(ctrlParticipants.participantsUpdateOne)
@@ -25,7 +26,7 @@ router
   .post(ctrlTournaments.tournamentsCreate)
   .get(ctrlTournaments.getTournaments);
 router  
-  .route('/tournaments/:scheduleid')
+  .route('/tournaments/:tournamentid')
   .put(ctrlTournaments.tournamentsUpdateOne)
   .delete(ctrlTournaments.tournamentsDeleteOne);
   console.log("api index display 1");
@@ -56,9 +57,9 @@ router
 
 // team
 router
-  .route('/rosters/:rosterid/team')
+  .route('/teams/:teamsid')
   //.post(ctrlRosters.rostersCreate)
-  //.get(ctrlRosters/teamid.getTeam);
+  .get(ctrlTeams.getTeams);
   //get(ctrlRosters/function) 
 
 module.exports = router;

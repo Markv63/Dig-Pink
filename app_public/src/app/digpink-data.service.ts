@@ -4,6 +4,7 @@ import { Participant }  from './participant/participant.component';
 import { Tournament }   from './tournament/tournament.component';
 import { Memorial }     from './memorial/memorial.component';
 import { Roster }     from './roster/roster.component';
+import { Team }     from './team/team.component';
 import { environment }  from '../environments/environment';
 
 
@@ -40,6 +41,16 @@ export class DigpinkDataService {
     //.catch(this.handleError);
   }
 
+ public getTeams():  Promise<Team[]> {
+    const url: string = `${this.apiBaseUrl}/rosters/`;   
+     return this.http
+      .get(url)
+      .toPromise ()
+      .then(response => response as Team[])
+      .catch();
+      //.catch(this.handleError);
+    }
+
   public getRosters():  Promise<Roster[]> {
     const url: string = `${this.apiBaseUrl}/rosters/`;   
      return this.http
@@ -59,6 +70,15 @@ export class DigpinkDataService {
       .catch(this.handleError);
   }
   
+  public updateMemorial(formData: Memorial): Promise<Memorial> {
+    const url: string = `${this.apiBaseUrl}/memorials/`;
+    return this.http
+      .put(url, formData)
+      .toPromise ()
+      .then(response => response as Memorial)
+      .catch(this.handleError);
+  }
+
   public getTournaments(): Promise<Tournament[]> {
     const url: string = `${this.apiBaseUrl}/tournaments/`;
     return this.http

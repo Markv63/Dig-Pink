@@ -1,13 +1,14 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule }             from '@angular/core';
+import { CommonModule }         from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
-import { AboutComponent } from '../about/about.component';
-import { HomepageComponent } from '../homepage/homepage.component';
-import { MemorialComponent } from '../memorial/memorial.component';
+import { AboutComponent }       from '../about/about.component';
+import { HomepageComponent }    from '../homepage/homepage.component';
+import { MemorialComponent }    from '../memorial/memorial.component';
 import { ParticipantComponent } from '../participant/participant.component';
-import { RosterComponent } from '../roster/roster.component';
-import { TournamentComponent } from '../tournament/tournament.component';
+import { RosterComponent }      from '../roster/roster.component';
+import { TeamComponent }        from '../team/team.component';
+import { TournamentComponent }  from '../tournament/tournament.component';
 
 console.log("app-routing.component.ts display 1");
 
@@ -35,6 +36,10 @@ const routes: Routes = [
   {
     path: 'roster',
     component: RosterComponent
+  },
+  {
+    path: 'team',
+    component: TeamComponent
   }
 ];
 

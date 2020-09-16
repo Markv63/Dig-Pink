@@ -17,7 +17,7 @@ const tournamentsSchema = new mongoose.Schema({
     required: true
   },
   home: {
-    type: Boolean,
+    type: String,
     required: true
   },  
   opponent: { 
@@ -25,7 +25,7 @@ const tournamentsSchema = new mongoose.Schema({
     required: true
   },
   visitor: {
-    type: Boolean,
+    type: String,
     required: true
   },
   gym: { 

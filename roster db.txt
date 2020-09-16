@@ -1,5 +1,14 @@
 db.rosters.save({
-school: "Staley V Team",
+school: "Staley",
+team: "Staley C Team"
+player: "Player Player 31",
+class: "Senior",
+playerNumber: 3
+})
+
+db.rosters.save({
+school: "Staley",
+team: "Staley C Team"
 player: "Player Player 31",
 class: "Senior",
 playerNumber: 3
@@ -13,3 +22,22 @@ opponent: "Winnetonka C Team",
 vistor:	"Vistor",
 gym: "Staley Main gym"
 })
+
+{"school":"Staley", ["team":"Staley C Team", "home": "home", "opponent": "Winnetonka C Team", "vistor":	"Vistor", "gym": "Staley Main gym"]}
+
+{"school":"Winnetonka", ["teamName":"Winnetonka C Team", "player": "Player Player W1", "class": "Freshman", "playerNumber": 1]}
+
+
+
+
+
+Mark Verbrugge 
+Started at DST Systems as a Mutal Fund Customer Service Phone Representative in 1990
+Through DST's internal program converted to COBOL Developer in 1997
+Worked at International Financial Data Services (Toronto, ON) for 3 years as System Manager (IFDS was a partnership between State Street Bank and DST)
+Worked at Argus Health Systems (now part of SS&C Technologies) for 9 years as Project Leader\Program Manager.
+
+Project involvement: Technical design, application development, and data production.
+Became PMP certified Project Manager in ?2007?
+?Worked at Broadridge Financial Services for 2 ½ years as a Project Manager
+?Worked at UMB Bank on a fraud prevention project?Currently working at Cerner as a Portfolio Manager – leading PMO and large Programs and PortfoliosProject Involvement: Designed the wireframe, css coding for aesthetics, consulting on design, data production

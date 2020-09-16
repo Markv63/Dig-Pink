@@ -5,42 +5,56 @@ const Loc = mongoose.model('Roster');
 
 const rostersCreate = (req, res) => {
  Loc.create({
-    school:        req.body.school,
-    player:        req.body.player,
-    class:         req.body.class,
-    playerNumber:  req.body.playerNumber,
-    })
-   if (err) {
+    school:          req.body.school,
+    Team: [
+      {
+      teamName:      req.body.teamName,
+      player:        req.body.player,
+      class:         req.body.class,
+      playerNumber:  req.body.playerNumber
+      }]
+    }, (err, roster) => {
+    if (err) {
       res
-        .status(200)
-        .json({"success" :"success"});
+        .status(400)
+        .json(err);
+   
     } else {
       res
         .status(201)
         .json(roster);
-    };
-  };
-//get schoolbyid
+    }  
+  });
+} 
+ 
+
 const getTeams = (req, res) => {
   Loc
-    .find({}, function (err, team) {
-      if (!team) {
+    .findById(req.params.rosterid)
+    .select('school')
+    .exec((err, roster) => {
+       if (!team) {
         return res
           .status(404)
           .json({
             "message":"Roster not found"
           });
+
         } else if (err) {
           return res 
-            .status(404)
+            .status(400)
             .json(err);
         }
-        else {
+        roster.teamName     = req.body.teamName;
+        roster.player       = req.body.player;
+        roster.class        = req.body.class;
+        roster.playerNumber = req.body.playerNumber 
+        {
           return res
             .status(200)
             .json(teams);
         }    
-      });
+    });
 } 
 
 
@@ -165,6 +179,7 @@ const rostersDeleteOne = (req, res) => {
     rostersReadOne,
     rostersUpdateOne,
     rostersDeleteOne,
-    getRosters
+    getRosters,
+    getTeams
   };
   

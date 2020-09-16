@@ -4,6 +4,39 @@ const Loc = mongoose.model('Tournament');
 
 console.log("api control tourn display 1");
 
+const doAddTournament = (req, res, tournament) => {
+  console.log("api cont mem do add 1");
+  if (!tournament) {
+    res
+      .status(404)
+      .json({ "message": "Schedule not found" });
+  } else {
+    const { time, team, home, opponent, visitor, gym } = req.body;
+    tournament.push({
+      time,
+      team,
+      home,
+      opponent,
+      visitor,
+      gym
+    });
+    console.log("mem api do add 2");
+    tournament.save((err, tournament) => {
+      if (err) {
+        res
+          .status(400)
+          .json(err);
+      } else {
+        res
+          .status(201)
+          .json(thisTournament);
+      }
+    });
+  }
+};
+
+
+
 const tournamentsCreate = (req, res) => {
  Loc.create({
     time:     req.body.time, 
@@ -11,18 +44,20 @@ const tournamentsCreate = (req, res) => {
     home:     req.body.home,
     opponent: req.body.opponent,
     visitor:  req.body.visitor,
-    gym:      req.body.Gym, 
-    })
+    gym:      req.body.gym 
+    }, (err, tournament) => {
     if (err) {
       res
-        .status(200)
-        .json({"success": "succes"});
+        .status(400)
+        .json(err);
     } else {
-      res
-        .status(201)
-        .json(tourament);
-    };
-  };
+       res
+         .status(201)
+         .json(tournament);
+         //doAddTournament(req, res, tournament);
+     }   
+    });
+}
 
 
 const getTournaments = (req, res) => {
@@ -48,8 +83,8 @@ const getTournaments = (req, res) => {
 }
   
 const tournamentsUpdateOne = (req, res) => {  
-  if (!req.params.tournamentid) {
-    return res
+  if(!req.params.tournamentid) {   
+   return res
       .status(404)
       .json({
         "message":  "Not Found, scheduleid is required"
@@ -58,7 +93,7 @@ const tournamentsUpdateOne = (req, res) => {
   Loc
     .findById(req.params.tournamentid)
     .select()
-    .exec((err, sched) => {
+    .exec((err, tournament) => {
       if (!tournament) {
         return res
         .status(404)
@@ -70,37 +105,39 @@ const tournamentsUpdateOne = (req, res) => {
         .status(400)
         .json(err);
       }
-     })
-      tournament.time = req.body.time;
-      tournament.team = req.body.team;
-      tournament.home = req.body.home;
-      tournament.opponent = req.body.opponent;
-      schedule.visitor = req.body.visitor;
-      schedule.gym = req.body.gym;
-      schedule.save((err, Loc) => {
+      else {
+        tournament.time = req.body.time;
+        tournament.team = req.body.team;
+        tournament.home = req.body.home;
+        tournament.opponent = req.body.opponent;
+        tournament.visitor = req.body.visitor;
+        tournament.gym = req.body.gym;
+        tournament.save((err, thisTournament) => {
         if (err)  {
           res
             .status(404)
             .json(err);
         } else {
-           res
-             .status(200)
-             .json(tournament);
-        }  
-      });
-     
+          res
+            .status(200)
+            .json(thisTournament);
+          }  
+        });
+      }
+    }
+  );
+};     
     
-  }; 
+  
 
 
 const tournamentsDeleteOne = (req, res) => {  
-  const {touramentsid} = req.params;
-  if (tournamentsid) {
-    sched
-      .findByIdAndRemove(tournamentsid)
-      
+  const {tournamentid} = req.params;
+  if (tournamentid) {
+    Loc
+      .findByIdAndRemove(tournamentid)
       .exec((err, tournament) => {
-        
+       
           if (err) {
             return res
               .status(404)

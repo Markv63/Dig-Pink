@@ -4,8 +4,9 @@ const Loc = mongoose.model('Memorial');
 
 console.log("api cont memor entry");
 
-const doAddMemorial = (req, res, location) => {
-
+ 
+const doAddMemorial = (req, res, memorial) => {
+  console.log("api cont mem do add 1");
   if (!memorial) {
     res
       .status(404)
@@ -17,6 +18,7 @@ const doAddMemorial = (req, res, location) => {
       player,
       school
     });
+    console.log("mem api do add 2");
     memorial.save((err, memorial) => {
       if (err) {
         res
@@ -25,31 +27,33 @@ const doAddMemorial = (req, res, location) => {
       } else {
         res
           .status(201)
-          .json(thisReview);
+          .json(thisMemorial);
       }
     });
   }
 };
 
 const memorialsCreate = (req, res) => {
-  console.log("api cont memor create 1");
+   
   Loc.create({
     honor: req.body.honor,
     player: req.body.player,
-    school: req.body.school,
+    school: req.body.school
 
   }, (err, memorial) => {
-    if (err) {
-      res
+  if (err) {
+    res
         .status(400)
         .json(err);
     } else {
-      res
-        .status(201)
-        .json(memorial);
-    };
-  })
-};
+        res
+          .status(201)
+          .json(memorial)
+          //doAddMemorial(req, res, memorial);
+      };
+    });       
+};  
+
 
 const getMemorials = (req, res) => {
   Loc
@@ -72,8 +76,9 @@ const getMemorials = (req, res) => {
       }
     });
 }
-
+ 
 const memorialsUpdateOne = (req, res) => {
+ 
   if (!req.params.memorialid) {
     return res
       .status(404)
@@ -82,8 +87,10 @@ const memorialsUpdateOne = (req, res) => {
       });
   }
   Loc
+  //console.log("app control mem update 3")
     .findById(req.params.memorialid)
-    .select('')
+    .select()
+    //console.log("app control mem update 4")
     .exec((err, memorial) => {
       if (!memorial) {
         return res
@@ -96,25 +103,26 @@ const memorialsUpdateOne = (req, res) => {
           .status(400)
           .json(err);
       }
-      memorial.name = req.body.name;
-      memorial.address = req.body.player
-      memorial.facilities = req.body.school;
-
-      memorial.save((err, loc) => {
-        if (err) {
-          res
-            .status(404)
-            .json(err);
-        } else {
-          res
-            .status(200)
-            .json(loc);
-        }
-      });
-    }
-    );
+      else {   
+        memorial.honor   = req.body.honor;
+        memorial.player = req.body.player
+        memorial.school = req.body.school;
+        memorial.save((err, thisMemorial) => {
+          if (err) {
+           res
+             .status(404)
+             .json(err);
+          } else {
+            res
+              .status(200)
+              .json(thisMemorial);
+            }
+          });
+        
+      }
+    }  
+  );
 };
-
 
 const memorialsDeleteOne = (req, res) => {
   const { memorialid } = req.params;

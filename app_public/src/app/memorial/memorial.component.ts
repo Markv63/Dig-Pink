@@ -5,6 +5,7 @@ import { DigpinkDataService } from '../digpink-data.service';
 console.log("memorial.component.ts display 1");
 
 export class Memorial {
+  //_id: number;
   honor: String;
   player: String;
   school: String;
@@ -17,7 +18,7 @@ export class Memorial {
 })
 export class MemorialComponent implements OnInit {
     
-  newMemorial:  Memorial = {
+  public newMemorial:  Memorial = {
     honor:  '',
     player: '',
     school: ''
@@ -25,9 +26,7 @@ export class MemorialComponent implements OnInit {
   public  formVisible: boolean = false
   public  formError:   string;
 
-  constructor(  
-    private digpinkDataservice: DigpinkDataService
-  ) {} 
+  constructor(private digpinkDataservice: DigpinkDataService) {} 
  
   public memorials: Memorial[];  
   public message: string;
@@ -53,6 +52,7 @@ export class MemorialComponent implements OnInit {
     memorials.unshift(memorial);
     this.memorials = memorials;
     this.resetAndHideMemorialForm();
+    console.log("mem comp on submit");
     })
   } else {
     this.formError = 'All fields required, please try again';
