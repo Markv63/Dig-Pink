@@ -1,10 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { DigpinkDataService } from '../digpink-data.service';
-import { Participant } from '../participant/participant.component';
+//import { Homepage } from '../homepage/homepage.component';
 import { RosterList } from '../RosterList';
 
+export class Roster {
+  school:       String;
+  teamName:     String;
+  player:       String;
+  class:        String;
+  playerNumber: String;
+}
 
-export class Team {
+
+/*export class Team {
   teamName: String;
   player: String;
   class: String;
@@ -16,7 +24,7 @@ export class Roster {
   school: String;
   teams: Team[];
  
-}
+}*/
 
 @Component({
   selector: 'app-roster',
@@ -25,32 +33,16 @@ export class Roster {
 })
 export class RosterComponent implements OnInit {
 
-  newRoster:  RosterList; 
+ newRoster:  Roster = {
+   school:      '',
+   teamName:    '',
+   player:      '',
+   class:       '',
+   playerNumber:''
+ }; 
   
-  /*const rostersCreate = (req, res) => {
-    Loc.create({
-       school:        req.body.school,
-       Team: [
-         {
-         teamName:      req.body.teamName,
-         player:        req.body.player,
-         class:         req.body.class,
-         playerNumber:  req.body.playerNumber
-         }]
-       }, (err, roster) => {
-       if (err) {
-         res
-           .status(400)
-           .json(err);
-      
-       } else {
-         res
-           .status(201)
-           .json(roster);
-       }  
-     });
-   } */
-    
+ 
+   
   constructor(
     private digpinkDataservice: DigpinkDataService
   ) {}
@@ -80,6 +72,15 @@ export class RosterComponent implements OnInit {
     })
   }
 
+  public pageContent = {
+    header: {
+      title: 'North Kansas City School District Dig Pink Tournament',
+      
+    },
+      strapline:  'NKC School District Side Out Foundation fund raiser',
+      sidebar: 'Picture from last year',
+      content: 'Dig Pink is an annual fundraising event sponsored by the NKC School District volleyball teams'
+    };
 
   //private showError(error: any): void {
   //  this.message = error.message;

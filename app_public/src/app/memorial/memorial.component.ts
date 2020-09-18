@@ -16,6 +16,7 @@ export class Memorial {
   templateUrl: './memorial.component.html',
   styleUrls: ['./memorial.component.css']
 })
+
 export class MemorialComponent implements OnInit {
     
   public newMemorial:  Memorial = {
@@ -37,22 +38,26 @@ export class MemorialComponent implements OnInit {
   
   private formIsValid(): boolean {
     if (this.newMemorial.honor && this.newMemorial.player && this.newMemorial.school) {
+   //   this.digpinkDataservice.addMemorial(this.newMemorial)
       return true;
     } else {
       return false;
     }
   }
-  
+  public onSubmit() {console.log("enter onSunit")}; 
   public onMemorialSubmit(): void {
+    console.log("message - entered on submit memorial 1");
     this.formError = '';
     if(this.formIsValid()) {
+      console.log("message - entered on submit memorial");
     this.digpinkDataservice.addMemorial(this.newMemorial)
     .then((memorial:  Memorial) => {
-    let memorials = this.memorials;
-    memorials.unshift(memorial);
-    this.memorials = memorials;
-    this.resetAndHideMemorialForm();
-    console.log("mem comp on submit");
+    //let memorials = this.memorials;
+    //memorials.unshift(memorial);
+    //this.memorials = memorials;
+    //this.resetAndHideMemorialForm();
+    console.log("mem comp on submit", memorial);
+    //memorial = this.memorial
     })
   } else {
     this.formError = 'All fields required, please try again';

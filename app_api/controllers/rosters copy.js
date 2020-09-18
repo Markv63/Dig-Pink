@@ -3,17 +3,15 @@ const { Locked } = require('http-errors');
 const Loc = mongoose.model('Roster');  
 //add data service
 
-// revamped to dump all rosters, no array.  made copy of original module.
-
 const rostersCreate = (req, res) => {
  Loc.create({
-    school:        req.body.school,
+    school:          req.body.school,
     teamName:      req.body.teamName,
     player:        req.body.player,
     class:         req.body.class,
     playerNumber:  req.body.playerNumber
-    },
-     (err, roster) => {
+      },
+      (err, roster) => {
     if (err) {
       res
         .status(400)
@@ -28,7 +26,7 @@ const rostersCreate = (req, res) => {
 } 
  
 
-/*const getTeams = (req, res) => {
+const getTeams = (req, res) => {
   Loc
     .findById(req.params.rosterid)
     .select('school')
@@ -55,7 +53,7 @@ const rostersCreate = (req, res) => {
             .json(teams);
         }    
     });
-} */
+} 
 
 
  const getRosters = (req, res) => {
@@ -80,7 +78,7 @@ const rostersCreate = (req, res) => {
         });
   } 
   
-/*const rostersReadOne = (req, res) => { 
+const rostersReadOne = (req, res) => { 
   console.log("api controller loc display 6");
   Loc 
   
@@ -101,7 +99,7 @@ const rostersCreate = (req, res) => {
           .status(200)
           .json(roster);
     }});
-}; */
+}; 
 
 
 const rostersUpdateOne = (req, res) => {  
@@ -176,10 +174,10 @@ const rostersDeleteOne = (req, res) => {
 
   module.exports = {
     rostersCreate,
-    //rostersReadOne,
+    rostersReadOne,
     rostersUpdateOne,
     rostersDeleteOne,
     getRosters,
-    //getTeams
+    getTeams
   };
   

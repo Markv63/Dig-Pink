@@ -50,7 +50,7 @@ router
   console.log("api index display 3");
 router  
   .route('/rosters/:rostersid')  
-  .get(ctrlRosters.rostersReadOne)
+  //.get(ctrlRosters.rostersReadOne)
   .put(ctrlRosters.rostersUpdateOne)
   .delete(ctrlRosters.rostersDeleteOne);
   console.log("api index display 4");

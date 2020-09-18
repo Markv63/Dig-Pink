@@ -5,7 +5,7 @@ const Loc = mongoose.model('Memorial');
 console.log("api cont memor entry");
 
  
-const doAddMemorial = (req, res, memorial) => {
+/*const doAddMemorial = (req, res, memorial) => {
   console.log("api cont mem do add 1");
   if (!memorial) {
     res
@@ -18,7 +18,7 @@ const doAddMemorial = (req, res, memorial) => {
       player,
       school
     });
-    console.log("mem api do add 2");
+    //console.log("mem api do add 2");
     memorial.save((err, memorial) => {
       if (err) {
         res
@@ -31,28 +31,46 @@ const doAddMemorial = (req, res, memorial) => {
       }
     });
   }
-};
+};*/
 
 const memorialsCreate = (req, res) => {
-   
-  Loc.create({
+ /* console.log("api cont mem create 1");
+ const memorialid = req.parms.memorialid;
+ if (memorialid) { 
+    Loc.create
+      .exec(( err, memorial) => {
+        if (err) {
+          res
+            .status(400)
+            .json(err);
+        } else {
+          doAddMemorial(req, res, memorial);
+        }
+    });       
+  } else {
+    res
+      .status(404)
+      .json({"message": "Memorial not created"});
+  }*/
+  Loc.create ({
     honor: req.body.honor,
     player: req.body.player,
     school: req.body.school
-
   }, (err, memorial) => {
-  if (err) {
+    if ( err) {
+
+    
     res
-        .status(400)
-        .json(err);
-    } else {
-        res
-          .status(201)
-          .json(memorial)
-          //doAddMemorial(req, res, memorial);
-      };
-    });       
-};  
+      .status(400)
+      .json(err);
+  } else {
+    res
+      .status(201)
+      .json(memorial);
+    }
+  }  
+ )
+};      
 
 
 const getMemorials = (req, res) => {

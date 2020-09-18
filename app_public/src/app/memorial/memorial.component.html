@@ -15,7 +15,8 @@
                 <button (click)="formVisible=true" class="btn btn-primary float-right">Add Honor or Memorial
                 </button> 
                 <div *ngIf="formVisible">
-                    <form (ngSubmit)="onMemorialSubmit()">
+                    <!-- form (ngSubmit)="onMemorialSubmit()" -->
+                        <form (ngSubmit)="onSubmit()">
                            <hr>
                            <h4>Add your Honor or Memorial</h4>
                         <div *ngIf="formError" class="alert alert-dnager" role ="alert">
@@ -45,7 +46,6 @@
                             <div class ="form-group row">
                                 <div class="col-12">
 
-                                    <!-- button (click)="formVisible=false" type="button" class="btn btn-primary float-left">Submit Honor\Memorial</button -->   
                                     <button type="submit" class="btn btn-primary float-left" style="margin-left:15px">Submit Honoree or Memorial</button>                                  
                                     <button (click)="formVisible=false" type="button" class="btn btn-primary float-right">Cancel</button> 
                                 </div>   

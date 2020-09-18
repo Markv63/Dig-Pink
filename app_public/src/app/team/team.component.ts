@@ -40,7 +40,15 @@ export class TeamComponent implements OnInit {
         this.teams = foundTeams;
     })
   }
-    
+  public pageContent = {
+    header: {
+      title: 'North Kansas City School District Dig Pink Tournament',
+      
+    },
+      //strapline:  'NKC School District Side Out Foundation fund raiser',
+      sidebar: 'Picture from last year'
+      //content: 'Dig Pink is an annual fundraising event sponsored by the NKC School District volleyball teams'
+    }  
   private showError(error: any): void {
     this.message = error.message;
   }
