@@ -1,4 +1,4 @@
-<div class="card" *ngFor="let tournament of tournaments"> 
+<div class="card" *ngFor="let tournament of tournaments | earliestFirst"> 
   <div class = "card-block">
     <h4>
       <!-- a href="/tournments/{{tournaments.school}}">{{tournaments.school}}</a -->  

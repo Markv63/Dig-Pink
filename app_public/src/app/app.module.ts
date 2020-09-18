@@ -17,7 +17,8 @@ import { ParticipantComponent } from './participant/participant.component';
 import { HtmlLineBreaksPipe }   from './html-line-breaks.pipe';
 import { TeamComponent }        from './team/team.component';
 import { SidebarComponent }     from './sidebar/sidebar.component';
-//import { EarliestFirstPipe }    from './earliest-first.pipe';
+import { EarliestFirstPipe }    from './earliest-first.pipe';
+import { AlphSortPipe } from './alph-sort.pipe';
 
 //console.log("app module ts display 1");
 
@@ -36,7 +37,8 @@ import { SidebarComponent }     from './sidebar/sidebar.component';
   HtmlLineBreaksPipe,
   TeamComponent,
   SidebarComponent,
-  //EarliestFirstPipe
+  EarliestFirstPipe,
+  AlphSortPipe
   
   ],
 
