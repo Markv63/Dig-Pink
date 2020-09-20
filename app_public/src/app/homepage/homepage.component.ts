@@ -18,7 +18,7 @@ export class HomepageComponent implements OnInit {
       
     },
       //strapline:  'NKC School District Side Out Foundation fund raiser',
-      sidebar: 'Picture from last year'
+      //sidebar:  ''
       //content: 'Dig Pink is an annual fundraising event sponsored by the NKC School District volleyball teams'
     }
 };
