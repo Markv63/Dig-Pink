@@ -9,3 +9,11 @@ ul {
 li {
   display: inline;
   }
+
+.navbar-brand {
+    color: white;
+}
+
+.navbar-brand:hover {
+    color: rgb(94, 10, 105);
+  }
