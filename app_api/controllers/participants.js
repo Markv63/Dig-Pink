@@ -7,17 +7,17 @@ console.log("api control part display 1");
 const participantsCreate = (req, res) => {
  Loc.create({
     school:   req.body.school,
-   })
-   if (err) {
+   }, (err, participant) => {
+    if (err) {
      res
-       .status(200)
-       .json({"success": "success"});
+       .status(400)
+       .json(err);
     } else {
       res
         .status(201)
         .json(participant);
-
-  };
+    }
+  });
 };
 
 const getParticipants = (req, res) => {
@@ -40,8 +40,30 @@ const getParticipants = (req, res) => {
             .json(participants);
         }    
       });
-}  
-
+} 
+ 
+const participantsReadOne = (req, res) => { 
+  console.log("part read one");
+  Loc 
+     .findById(req.params.participantid)
+     .exec((err, participant) => {
+       if (!participant) {
+         return res
+           .status(404)
+           .json({
+             "message": "participant not found ReadOne"
+           });
+       } else if (err) {
+         return res
+           .status(404)
+           .json(err);
+       } else  { 
+         return res
+           .status(200)
+           .json(participant);
+     }});
+ }; 
+ 
 console.log("api control part display 3");
 const participantsUpdateOne = (req, res) => {  
   if (!req.params.schoolid) {
@@ -112,6 +134,7 @@ const participantsDeleteOne = (req, res) => {
 
 module.exports = {
   participantsCreate,
+  participantsReadOne,
   participantsUpdateOne,
   participantsDeleteOne,
   getParticipants

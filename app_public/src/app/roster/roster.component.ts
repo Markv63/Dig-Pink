@@ -4,10 +4,10 @@ import { DigpinkDataService } from '../digpink-data.service';
 import { RosterList } from '../RosterList';
 
 export class Roster {
-  school:       String;
+  //school:       String;
   teamName:     String;
   player:       String;
-  class:        String;
+  playerClass:        String;
   playerNumber: String;
 }
 
@@ -34,10 +34,10 @@ export class Roster {
 export class RosterComponent implements OnInit {
 
  newRoster:  Roster = {
-   school:      '',
+  // school:      '',
    teamName:    '',
    player:      '',
-   class:       '',
+   playerClass: '',
    playerNumber:''
  }; 
   

@@ -1,0 +1,12 @@
+Staley	Staley C	Sta Player 1	Freshman	1
+Staley	Staley C	Sta Player 2	Freshman	2
+Staley	Staley C	Sta Player 3	Freshman	3
+Staley	Staley C	Sta Player 4	Freshman	4
+Staley	Staley C	Sta Player 5	Freshman	5
+Staley	Staley C	Sta Player 6	Freshman	6
+Staley	Staley C	Sta Player 7	Sophomore	7
+Staley	Staley C	Sta Player 8	Sophomore	8
+Staley	Staley C	Sta Player 9	Sophomore	9
+Staley	Staley C	Sta Player 10	Sophomore	10
+Staley	Staley C	Sta Player 11	Sophomore	11
+Staley	Staley C	Sta Player 12	Sophomore	12

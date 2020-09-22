@@ -16,10 +16,11 @@ const ctrlTeams        = require('../controllers/teams');
   //console.log("api index display 6", router);
  router  
    .route('/participants/:participantsid')
+   .get(ctrlParticipants.participantsReadOne)
    .put(ctrlParticipants.participantsUpdateOne)
    .delete(ctrlParticipants.participantsDeleteOne);
   console.log("api index display 7");
-  
+ 
 // tournament
 router
   .route('/tournaments')
@@ -34,8 +35,9 @@ router
 // memorials  
 router
   .route('/memorials')
-  .post(ctrlMemorials.memorialsCreate)  
-  .get(ctrlMemorials.getMemorials);
+  .get(ctrlMemorials.getMemorials)
+  .post(ctrlMemorials.memorialsCreate); 
+ 
 router  
   .route('/memorials/:memorialid')  
   .put(ctrlMemorials.memorialsUpdateOne)
@@ -43,7 +45,7 @@ router
   console.log("api index display 2");
 
 // roster  
-router
+/*router
   .route('/rosters')
   .post(ctrlRosters.rostersCreate)
   .get(ctrlRosters.getRosters);
@@ -51,9 +53,22 @@ router
 router  
   .route('/rosters/:rostersid')  
   //.get(ctrlRosters.rostersReadOne)
+  //.put(ctrlRosters.rostersUpdateOne)
+  //.delete(ctrlRosters.rostersDeleteOne);*/
+  console.log("api index display 4");
+
+  router  
+  .route('/participants/:participantid/rosters')  
+  .post(ctrlRosters.rostersCreate);
+  console.log("api index display 4");
+  
+  router
+  .route('/participants/:participantid/rosters/:rosterid')
+  .get(ctrlRosters.rostersReadOne)  
   .put(ctrlRosters.rostersUpdateOne)
   .delete(ctrlRosters.rostersDeleteOne);
-  console.log("api index display 4");
+ 
+
 
 // team
 router

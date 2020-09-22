@@ -34,7 +34,8 @@ const routes: Routes = [
     component: TournamentComponent
   },
   {
-    path: 'roster',
+    //path: 'roster',
+    path: 'participant/:participantId',
     component: RosterComponent
   },
   {
