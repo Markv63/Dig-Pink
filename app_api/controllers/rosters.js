@@ -3,17 +3,23 @@ const { Locked } = require('http-errors');
 //const { response } = require('express');
 //const Loc = mongoose.model('Roster');  
 const Loc = mongoose.model('Participant');  
-//add data service
+ 
 
 const doAddRoster = (req, res, participant) => {
-  console.log("doAddRoster");
+   
   if (!participant) {
     res
       .status(404)
       .json({"message": "participant not found"});
   } else {
-    const {teamName, player, playerClass, playerNumber} = req.body;
-    participant.rosters.push({
+     
+    let {teamName, player, playerClass, playerNumber} = req.body;
+    teamName = req.body.teamName;
+    player = req.body.player;
+    playerClass = req.body.playerClass;
+    playerNumber = req.body.playerNumber;
+    
+      participant.rosters.push({
         teamName, 
         player,
         playerClass,
@@ -25,6 +31,7 @@ const doAddRoster = (req, res, participant) => {
           .status(400)
           .json(err);
       } else {
+         
         const thisRoster = participant.rosters;
         res
           .status(201)
@@ -36,7 +43,8 @@ const doAddRoster = (req, res, participant) => {
 
 
 // revamped to dump all rosters, no array.  made copy of original module.
-console.log("rosters.js");
+console.log("controller rosters.js");
+
 const rostersCreate = (req, res) => {
   
   const participantId = req.params.participantid;
@@ -44,13 +52,14 @@ const rostersCreate = (req, res) => {
   if (participantId) {
     Loc
       .findById(participantId)
-      //.select('teamName player playerClass playerNumber')
+      
       .exec((err, participant) => {
         if (err) {
           res
            .status(400)
            .json(err);
         } else {
+          console.log("participant", participant);
           doAddRoster(req, res, participant);
         }
       });
@@ -68,7 +77,7 @@ const getRosters = (req, res) => {
         return res
           .status(404)
           .json({
-              "message":"Roster not found"
+              "message":"Roster not found 1"
           });
         } else if (err) {
           return res 
@@ -87,7 +96,9 @@ const rostersReadOne = (req, res) => {
   console.log("api controller loc display 6");
   Loc 
     .findById(req.params.participantid)
+    .select('rosters')
     .exec((err, participant) => {
+      console.log(participant);
       if (!participant) {
         return res
           .status(404)
@@ -100,18 +111,26 @@ const rostersReadOne = (req, res) => {
           .json(err);
       }
       if (participant.rosters && participant.rosters.length > 0) {
-        const roster = participant.rosters.id(req.params.rosterid);
+        console.log("Roster read1");
+        //const roster = participant.rosters.id(req.params.rosterid);
+        const roster = participant;
+        console.log(participant);
+        //console.log(roster);
+        //console.log(participant.rosters.id);
+        //console.log(req.params.rosterid);
+        console.log(roster);
         if (!roster) {
+          console.log(roster);
           return res
             .status(404)
-            .json({"message": "roster not found"});
+            .json({"message": "roster not found 2"});
         } else {
-          const rosponse = {
+          const response = {
             participant: {
-              school: participantid.school,
+              school: participant.school,
               id: req.params.participantid
             },
-            review
+            roster
           };  
             return res
               .status(200)

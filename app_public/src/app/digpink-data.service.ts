@@ -51,8 +51,8 @@ export class DigpinkDataService {
       //.catch(this.handleError);
     }
 
-  public getRosters():  Promise<Roster[]> {
-    const url: string = `${this.apiBaseUrl}/rosters/`;   
+  public getRosters(participantsId: string):  Promise<Roster[]> {
+    const url: string = `${this.apiBaseUrl}/participants/${participantsId}/rosters`;   
      return this.http
       .get(url)
       .toPromise ()
@@ -60,7 +60,17 @@ export class DigpinkDataService {
       .catch();
       //.catch(this.handleError);
     }
-  
+
+    public getParticipantsReadOne(participantsId: string):  Promise<Participant> {
+      const url: string = `${this.apiBaseUrl}/participants/${participantsId}`;   
+       return this.http
+        .get(url)
+        .toPromise ()
+        .then(response => response as Participant)
+        .catch();
+        //.catch(this.handleError);
+      }
+
   public addMemorial(formData: Memorial): Promise<Memorial> {
     const url: string = `${this.apiBaseUrl}/memorials/`;
     return this.http

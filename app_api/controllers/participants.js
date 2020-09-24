@@ -45,7 +45,7 @@ const getParticipants = (req, res) => {
 const participantsReadOne = (req, res) => { 
   console.log("part read one");
   Loc 
-     .findById(req.params.participantid)
+     .findById(req.params.participantsid)
      .exec((err, participant) => {
        if (!participant) {
          return res

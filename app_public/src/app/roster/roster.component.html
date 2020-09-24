@@ -1,46 +1,44 @@
 
-<app-page-header [content]="pageContent.sidebar"></app-page-header>
-<small>&nbsp;</small>
-<small>&nbsp;</small>
-<small>&nbsp;</small>
-<small>&nbsp;</small>
-<small>&nbsp;</small>
-<small>&nbsp;</small>
-<div class="col-12 col-sm-8">
-  <div class="card" *ngFor="let roster of rosters | alphSort">
-   
-    <div class="col-sm-10">
-    
-    <ul>{{roster.teamName}}</ul>&nbsp;&nbsp;<ul>{{roster.player}}</ul>&nbsp;<ul>{{roster.class}}</ul>&nbsp;<ul>{{roster.playerNumber}}</ul>
- 
-    </div>
-  </div>
- 
-<div>
-  <!-- div class="col-12 col-lg-8" [innerHTML]="pageContent.sidebar | htmlLineBreaks"></div>
-  <div class="row banner">
-    <div class="col-12">
-        <h1>{{content.title}}
-            <small>{{content.sidebar}}</small>
-        </h1>
-    </div -->
-</div>
-<div class="col-08 col-sm-2">
-  <li><a href="https://giving.side-out.org/campaigns/16865" type="button" class="nav-link float-right">Donations for Oak Park</a></li>
+<!-- app-page-header [content]="pageContent.sidebar"></app-page-header -->
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
 
-  <li><a href="https://oakparkdigpinkvolleyball.itemorder.com/" type="button" class="nav-link float-right">Apparel Store for Oak Park</a></li>
- 
-  <li><a href="https://giving.side-out.org/campaigns/16867" type="button" class="nav-link float-right">Donations for Winnetonka</a></li> 
-      
-  <li><a href="https://winnetonkadigpinkvolleyball.itemorder.com/" type="button" class="nav-link float-right">Apparel Store for Winnetonka</a></li>          
+<small>&nbsp;</small>
+<p>roster page 1</p>
+<div class="col-12 col-med-8" *ngIf=participant.roster>
+  
    
-  <li><a href="https://giving.side-out.org/campaigns/16866" type="button" class="nav-link float-right">Donations for North Kansas City</a></li>  
+  
+  <div class="col-sm-8">
     
-  <li><a href="https://nkcdigpinkvolleyball.itemorder.com/" type="button" class="nav-link float-right">Apparel Store for North Kansas City</a></li>  
+    <!-- ul>{{teamName}}&nbsp;&nbsp;{{player}}&nbsp;{{playerClass}}&nbsp;{{playerNumber}}</ul -->
+    <div *ngFor ="let roster of participant.roster">
+      {{roster.teamName}}&nbsp;&nbsp;{{roster.player}}&nbsp;{{roster.playerClass}}&nbsp;{{roster.playerNumber}}
+    </div>
+    
+  </div>
+</div>
+  <p>roster page 2</p>
+  
+<div class="col-10 col-sm-2">
+  <li><a href="https://giving.side-out.org/campaigns/16865"         type="button" class="nav-link float-right">Donations for Oak Park</a></li>
+
+  <li><a href="https://oakparkdigpinkvolleyball.itemorder.com/"     type="button" class="nav-link float-right">Apparel Store for Oak Park</a></li>
  
-  <li><a href="https://giving.side-out.org/campaigns/16864"type="button" class="nav-link float-right">Donations for Staley</a></li>        
+  <li><a href="https://giving.side-out.org/campaigns/16867"         type="button" class="nav-link float-right">Donations for Winnetonka</a></li> 
+      
+  <li><a href="https://winnetonkadigpinkvolleyball.itemorder.com/"  type="button" class="nav-link float-right">Apparel Store for Winnetonka</a></li>          
+   
+  <li><a href="https://giving.side-out.org/campaigns/16866"         type="button" class="nav-link float-right">Donations for North Kansas City</a></li>  
     
-  <li><a href="https://staleydigpinkvolleyball.itemorder.com/"type="button" class="nav-link float-right">Apparel Store for Staley</a></li>
+  <li><a href="https://nkcdigpinkvolleyball.itemorder.com/"         type="button" class="nav-link float-right">Apparel Store for North Kansas City</a></li>  
+ 
+  <li><a href="https://giving.side-out.org/campaigns/16864"         type="button" class="nav-link float-right">Donations for Staley</a></li>        
+    
+  <li><a href="https://staleydigpinkvolleyball.itemorder.com/"      type="button" class="nav-link float-right">Apparel Store for Staley</a></li>
   
 </div> 
   

@@ -38,10 +38,10 @@ const routes: Routes = [
     path: 'participant/:participantId',
     component: RosterComponent
   },
-  {
+  /*{
     path: 'team',
     component: TeamComponent
-  }
+  }*/
 ];
 
 @NgModule({

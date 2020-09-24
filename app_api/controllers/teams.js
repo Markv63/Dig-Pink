@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const { Locked } = require('http-errors');
-const Loc = mongoose.model('Roster');  
+const Loc = mongoose.model('Participant');  
 //add data service
 
 

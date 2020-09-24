@@ -55,16 +55,10 @@ require(
 require(
  './memorials'
 );
-require( 
-'./rosters'
-);
+//require( 
+//'./rosters'
+//);
 require(
   './participants'
 );
 
-/*require(
-  './tournaments',
-  './memorials',
-  './rosters',
-  './participants'
-);*/

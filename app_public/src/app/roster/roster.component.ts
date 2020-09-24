@@ -1,30 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 import { DigpinkDataService } from '../digpink-data.service';
+import { Participant } from '../participant/participant.component';
 //import { Homepage } from '../homepage/homepage.component';
 import { RosterList } from '../RosterList';
+import { switchMap } from 'rxjs/operators';
+ 
+console.log(" roster component 1");
+
 
 export class Roster {
-  //school:       String;
   teamName:     String;
   player:       String;
-  playerClass:        String;
+  playerClass:  String;
   playerNumber: String;
 }
-
-
-/*export class Team {
-  teamName: String;
-  player: String;
-  class: String;
-  playerNumber: String;
-}
-
-export class Roster {
-  _id:  String;
-  school: String;
-  teams: Team[];
- 
-}*/
 
 @Component({
   selector: 'app-roster',
@@ -32,47 +22,41 @@ export class Roster {
   styleUrls: ['./roster.component.css']
 })
 export class RosterComponent implements OnInit {
+ // @Input() participant: Participant;
 
- newRoster:  Roster = {
-  // school:      '',
-   teamName:    '',
-   player:      '',
-   playerClass: '',
-   playerNumber:''
- }; 
-  
- 
-   
-  constructor(
-    private digpinkDataservice: DigpinkDataService
+ constructor(
+    private digpinkDataservice: DigpinkDataService,
+    private route: ActivatedRoute
   ) {}
 
-  public rosters: Roster [];
-  public teams:  Roster[];
+  public participant:  Participant; 
+
+  public newRoster: Roster;
+  //public teams:  Roster[];
   public message: string;
+   
 
-  ngOnInit(): void {
-    this.getRosters()
-    
+  ngOnInit() {
+    this.callService();
   }
+  public callService(): void {
+    this.route.paramMap
+    .pipe(
+      switchMap((params: ParamMap) => {
+        let id = params.get('participantsId');
+        console.log("participantsId", id)
+        return this.digpinkDataservice.getRosters(id);
+       // return this.digpinkDataservice.getParticipantsReadOne(id);
+      })
+    ).subscribe(( roster : Roster[]) => {
 
-  /*private getTeams(): void {
-    this.digpinkDataservice
-      .getTeams()
-      .then(foundTeams => {
-      //  this.teams = foundTeams;
-    })
-  }*/
-    
-  private getRosters(): void {
-    this.digpinkDataservice
-      .getRosters()
-      .then(foundRosters => {
-        this.rosters = foundRosters;
-    })
-  }
+      this.participant.roster = roster;
+      console.log("roster info",  this.participant.roster)
+      });
+    }
+ 
 
-  public pageContent = {
+  /*public pageContent = {
     header: {
       title: 'North Kansas City School District Dig Pink Tournament',
       
@@ -80,7 +64,7 @@ export class RosterComponent implements OnInit {
       strapline:  'NKC School District Side Out Foundation fund raiser',
       sidebar: 'Picture from last year',
       content: 'Dig Pink is an annual fundraising event sponsored by the NKC School District volleyball teams'
-    };
+    };*/
 
   //private showError(error: any): void {
   //  this.message = error.message;

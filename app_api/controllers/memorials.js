@@ -18,7 +18,7 @@ const doAddMemorial = (req, res, memorial) => {
       player,
       school
     });
-    //console.log("mem api do add 2");
+    console.log("mem api do add 2");
     memorial.save((err, memorial) => {
       if (err) {
         res
@@ -34,8 +34,27 @@ const doAddMemorial = (req, res, memorial) => {
 };
 
 const memorialsCreate = (req, res) => {
+
  /* console.log("api cont mem create 1");*/
- const memorialid = req.parms.memorialid;
+
+ console.log("api cont mem create 1");
+  Loc.create({
+    honor:    req.body.honor,
+    player:   req.body.player,
+    school:   req.body.school,
+    }, (err, memorial) => {
+    if (err) {
+     res
+      .status(400)
+      .json(err);
+     } else {
+       res
+        .status(201)
+        .json(memorial);
+     };
+  });
+};
+ /*const memorialid = req.parms.memorialid;
  if (memorialid) { 
     Loc
       .findById(memorialid)
@@ -54,26 +73,9 @@ const memorialsCreate = (req, res) => {
       .status(404)
       .json({"message": "Memorial not created"});
   }
-}; 
-  /*Loc.create ({
-    honor: req.body.honor,
-    player: req.body.player,
-    school: req.body.school
-  }, (err, memorial) => {
-    if ( err) {
+}; */
 
-    
-    res
-      .status(400)
-      .json(err);
-  } else {
-    res
-      .status(201)
-      .json(memorial);
-    }
-  }  
- )
-};*/      
+  
 
 
 const getMemorials = (req, res) => {

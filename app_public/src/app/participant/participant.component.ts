@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { DigpinkDataService } from '../digpink-data.service';
+import { Roster } from '../roster/roster.component';
 
 console.log("participant.component.ts display 1");
 
 export class Participant {
   school: string;
+  roster: Roster[];
 }
 
 @Component({

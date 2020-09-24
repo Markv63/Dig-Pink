@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 // the below is dump the rosters onto a page to have a functional page for the demonstration.
 
 
-const rosterSchema = new mongoose.Schema ({
+/*const rosterSchema = new mongoose.Schema ({
   school: {
     type: String,
     required: true 
@@ -25,7 +25,7 @@ const rosterSchema = new mongoose.Schema ({
     type: Number,
     required: true
   }
-});
+});*/
 
 
 

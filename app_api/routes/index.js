@@ -59,12 +59,14 @@ router
 
   router  
   .route('/participants/:participantid/rosters')  
-  .post(ctrlRosters.rostersCreate);
+  .post(ctrlRosters.rostersCreate)
+  .get(ctrlRosters.rostersReadOne);
+   
   console.log("api index display 4");
   
   router
   .route('/participants/:participantid/rosters/:rosterid')
-  .get(ctrlRosters.rostersReadOne)  
+     
   .put(ctrlRosters.rostersUpdateOne)
   .delete(ctrlRosters.rostersDeleteOne);
  
