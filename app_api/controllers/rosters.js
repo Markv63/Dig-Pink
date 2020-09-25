@@ -93,7 +93,7 @@ const getRosters = (req, res) => {
 } 
   
 const rostersReadOne = (req, res) => { 
-  console.log("api controller loc display 6");
+  console.log("api controller loc display 6", findById);
   Loc 
     .findById(req.params.participantid)
     .select('rosters')
@@ -115,7 +115,7 @@ const rostersReadOne = (req, res) => {
         //const roster = participant.rosters.id(req.params.rosterid);
         const roster = participant;
         console.log(participant);
-        //console.log(roster);
+        console.log(roster);
         //console.log(participant.rosters.id);
         //console.log(req.params.rosterid);
         console.log(roster);

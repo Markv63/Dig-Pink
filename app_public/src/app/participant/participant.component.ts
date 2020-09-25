@@ -3,7 +3,7 @@ import { DigpinkDataService } from '../digpink-data.service';
 import { Roster } from '../roster/roster.component';
 
 console.log("participant.component.ts display 1");
-
+// inpact change
 export class Participant {
   school: string;
   roster: Roster[];

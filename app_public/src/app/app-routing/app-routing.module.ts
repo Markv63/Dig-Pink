@@ -11,7 +11,7 @@ import { TeamComponent }        from '../team/team.component';
 import { TournamentComponent }  from '../tournament/tournament.component';
 
 console.log("app-routing.component.ts display 1");
-
+// non impact change
 const routes: Routes = [
   {
     path: '',

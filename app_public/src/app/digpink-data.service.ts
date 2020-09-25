@@ -60,8 +60,18 @@ export class DigpinkDataService {
       .catch();
       //.catch(this.handleError);
     }
-
+    public rostersReadOne(participantsId: string):  Promise<Roster[]> {
+     console.log(participantsId);
+      const url: string = `${this.apiBaseUrl}/participants/${participantsId}/rosters`;   
+       return this.http
+        .get(url)
+        .toPromise ()
+        .then(response => response as Roster[])
+        .catch();
+        //.catch(this.handleError);
+      }
     public getParticipantsReadOne(participantsId: string):  Promise<Participant> {
+      console.log(participantsId);
       const url: string = `${this.apiBaseUrl}/participants/${participantsId}`;   
        return this.http
         .get(url)

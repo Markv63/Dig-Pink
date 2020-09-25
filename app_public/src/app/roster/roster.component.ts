@@ -45,7 +45,8 @@ export class RosterComponent implements OnInit {
       switchMap((params: ParamMap) => {
         let id = params.get('participantsId');
         console.log("participantsId", id)
-        return this.digpinkDataservice.getRosters(id);
+       //return this.digpinkDataservice.getRosters(id);
+        return this.digpinkDataservice.rostersReadOne(id);
        // return this.digpinkDataservice.getParticipantsReadOne(id);
       })
     ).subscribe(( roster : Roster[]) => {
