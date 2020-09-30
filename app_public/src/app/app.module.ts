@@ -39,13 +39,14 @@ import { AlphSortPipe } from './alph-sort.pipe';
   SidebarComponent,
   EarliestFirstPipe,
   AlphSortPipe
-  
+    
   ],
 
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   //bootstrap: [TournamentComponent]

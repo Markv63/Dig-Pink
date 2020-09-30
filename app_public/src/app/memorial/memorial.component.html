@@ -15,11 +15,11 @@
                 <button (click)="formVisible=true" class="btn btn-primary float-right">Add Honor or Memorial
                 </button> 
                 <div *ngIf="formVisible">
-                    <!-- form (ngSubmit)="onMemorialSubmit()" -->
-                        <form (ngSubmit)="onSubmit()">
+                    <form (ngSubmit)="onMemorialSubmit()">
+                         
                            <hr>
                            <h4>Add your Honor or Memorial</h4>
-                        <div *ngIf="formError" class="alert alert-dnager" role ="alert">
+                        <div *ngIf="formError" class="alert alert-danger" role ="alert">
                                {{formError}}
                         </div>
                         <div class="form-group row">

@@ -44,7 +44,7 @@ export class MemorialComponent implements OnInit {
       return false;
     }
   }
-  public onSubmit() {console.log("enter onSunit")}; 
+  //public onSubmit() {console.log("enter onSunit")}; 
   public onMemorialSubmit(): void {
     console.log("message - entered on submit memorial 1");
     this.formError = '';
@@ -52,10 +52,10 @@ export class MemorialComponent implements OnInit {
       console.log("message - entered on submit memorial");
     this.digpinkDataservice.addMemorial(this.newMemorial)
     .then((memorial:  Memorial) => {
-    //let memorials = this.memorials;
-    //memorials.unshift(memorial);
-    //this.memorials = memorials;
-    //this.resetAndHideMemorialForm();
+    let memorials = this.memorials.slice(0);
+    memorials.unshift(memorial);
+    this.memorials = memorials;
+    this.resetAndHideMemorialForm();
     console.log("mem comp on submit", memorial);
     //memorial = this.memorial
     })

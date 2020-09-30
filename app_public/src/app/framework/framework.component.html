@@ -1,26 +1,27 @@
 <nav class="navbar fixed-top navbar-expand-md navbar-light">
-    <div class="container">
-      <a routerLink="" class="navbar-brand">Dig Pink</a>
-      <button type="button" data-toggle="collapse" data-target="#navbarMain" class="navbar-toggler">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-  
-      <div id="navbarMain" class="navbar-collapse collapse">
-        <ul class="navbar-nav mr-auto">
-            <li><a routerLink="about" routerLinkActive="active" class="nav-link">About Side-Out</a></li>
-            <li><a routerLink="memorial" routerLinkActive="active" class="nav-link">Honors & Memorials</a><li>   
-            <li><a routerLink="tournament" routerLinkActive="active" class="nav-link">Tournament Info</a></li>                      
-        </ul>  
+  <div class="container">
+    <a routerLink="" class="navbar-brand">Dig Pink</a>
+    <button type="button" data-toggle="collapse" data-target="#navbarMain" class="navbar-toggler">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbarMain" class="navbar-collapse collapse">
+      <ul class="navbar-nav mr-auto">
+        <li><a routerLink="about" routerLinkActive="active" class="nav-link">About Side-Out</a></li>
+        <li><a routerLink="memorial" routerLinkActive="active" class="nav-link">Honors & Memorials</a>
+        <li>
+        <li><a routerLink="tournament" routerLinkActive="active" class="nav-link">Tournament Info</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container content upper-margin">
+  <router-outlet></router-outlet>
+  <footer>
+    <div class="row">
+      <div class="col-12">
+        <small>&copy; Dig Pink NKC School District Side Out Foundation Fund Raiser</small>
       </div>
     </div>
-  </nav>
-  <div class="container content">
-    <router-outlet></router-outlet>
-    <footer>
-      <div class="row">
-        <div class="col-12">
-          <small>&copy; Dig Pink NKC School District Side Out Foundation Fund Raiser</small>
-        </div>
-      </div>
-    </footer>
-  </div>
+  </footer>
+</div>

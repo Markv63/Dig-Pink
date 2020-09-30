@@ -9,7 +9,7 @@ legend {
 }
 
 .navbar {
-  background-color: #da1884;
+  background-color: #bd1772;
   border-color: #6d0740
 }
 
@@ -107,4 +107,7 @@ body {
   font-family: "Cabin", Arial, sans-serif;
   color: #f5bedc;
   background-color: #da1884;
+}
+.upper-margin {
+  margin-top: 50px;
 }
