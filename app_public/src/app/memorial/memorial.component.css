@@ -9,3 +9,21 @@
     background-color: #6d0740;
     color: white;
   }
+
+.card-block {
+  background-color: #da1884;
+  margin-bottom: 0.5em;
+  margin-top: 1.5em;
+  padding-bottom: 0.5em;
+  font-size-adjust: 10%;
+}
+
+.banner {
+    margin-top: 4em;
+    background-color: #da1884;
+    border-bottom: 1px solid  #6d0740;
+    margin-bottom: 1.5em;
+    margin-top: .5em;
+    padding-bottom: 0.5em;
+    font-size-adjust: 10%;
+  }
