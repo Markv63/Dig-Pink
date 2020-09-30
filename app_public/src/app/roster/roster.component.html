@@ -7,13 +7,13 @@
 &nbsp;
 
 <small>&nbsp;</small>
-<p>roster page 4</p>
-<div class="col-12 col-med-8" *ngIf=participant.roster>
+<p>roster page 6</p>
+<div class="col-12 col-med-8" *ngIf=teams>
   
-  <p>roster page 1</p>
+   
   
-  <div class="col-sm-8">
-    <p>roster page 3</p>
+  <div class="col-med-8">
+    
     <!-- ul>{{teamName}}&nbsp;&nbsp;{{player}}&nbsp;{{playerClass}}&nbsp;{{playerNumber}}</ul -->
     <!-- div *ngFor ="let roster of participant.roster">
       {{roster.teamName}}&nbsp;&nbsp;{{roster.player}}&nbsp;{{roster.playerClass}}&nbsp;{{roster.playerNumber}}
@@ -21,12 +21,17 @@
     
   </div>
 </div>
-  <p>roster page 2</p>
-  <div *ngFor ="let roster of participant.roster">
-    {{roster.teamName}}&nbsp;&nbsp;{{roster.player}}&nbsp;{{roster.playerClass}}&nbsp;{{roster.playerNumber}}
+   
+  <div *ngFor ="let team of teams | alphSort">
+   
+    <span>{{team.teamName}}</span>&nbsp;&nbsp;
+    {{team.player}}&nbsp;
+    {{team.playerClass}}&nbsp;
+    {{team.playerNumber}}
   </div>
-  
-<div class="col-10 col-sm-2">
+ 
+   
+  <div class="col-10 col-sm-2">
   <li><a href="https://giving.side-out.org/campaigns/16865"         type="button" class="nav-link float-right">Donations for Oak Park</a></li>
 
   <li><a href="https://oakparkdigpinkvolleyball.itemorder.com/"     type="button" class="nav-link float-right">Apparel Store for Oak Park</a></li>

@@ -22,17 +22,19 @@ export class Roster {
   styleUrls: ['./roster.component.css']
 })
 export class RosterComponent implements OnInit {
- // @Input() participant: Participant;
+  @Input() participant: Participant;
+ // @Input() teams: Roster[];
 
  constructor(
     private digpinkDataservice: DigpinkDataService,
     private route: ActivatedRoute
   ) {}
 
-  public participant:  Participant; 
+  //public participant:  Participant; 
+  public extraParticipant: Participant;
 
   public newRoster: Roster;
-  //public teams:  Roster[];
+  public teams:  Roster[];
   public message: string;
    
 
@@ -43,16 +45,18 @@ export class RosterComponent implements OnInit {
     this.route.paramMap
     .pipe(
       switchMap((params: ParamMap) => {
-        let id = params.get('participantsId');
-        console.log("participantsId", id)
+        let id = params.get('participantId');
+        console.log("participantId", id);
+        console.log("in switchmap");
        //return this.digpinkDataservice.getRosters(id);
         return this.digpinkDataservice.rostersReadOne(id);
        // return this.digpinkDataservice.getParticipantsReadOne(id);
       })
-    ).subscribe(( roster : Roster[]) => {
-
-      this.participant.roster = roster;
-      console.log("roster info",  this.participant.roster)
+    ).subscribe(( participant : Participant) => {
+      console.log("in subscribe method",participant);
+      this.teams = participant.roster;
+      console.log("roster info", this.teams);
+      console.log("teamname",this.teams[0].teamName);
       });
     }
  

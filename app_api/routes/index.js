@@ -55,7 +55,7 @@ router
   //.get(ctrlRosters.rostersReadOne)
   //.put(ctrlRosters.rostersUpdateOne)
   //.delete(ctrlRosters.rostersDeleteOne);*/
-  console.log("api index display 4");
+  //console.log("api index display 4");
 
   router  
   .route('/participants/:participantid/rosters')  

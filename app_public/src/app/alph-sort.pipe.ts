@@ -15,9 +15,9 @@ export class AlphSortPipe implements PipeTransform {
     
     return comparison;
   }
-  transform(rosters: any []): any[] {
-    if (rosters && rosters.length > 0) {
-      return rosters.sort(this.compare);
+  transform(team: any []): any[] {
+    if (team && team.length > 0) {
+      return team.sort(this.compare);
     } 
     return null;
   }

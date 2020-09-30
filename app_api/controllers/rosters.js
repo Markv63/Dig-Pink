@@ -93,10 +93,10 @@ const getRosters = (req, res) => {
 } 
   
 const rostersReadOne = (req, res) => { 
-  console.log("api controller loc display 6", findById);
+  console.log("api controller loc display 6");
+  console.log("participantid", req.params.participantid);
   Loc 
     .findById(req.params.participantid)
-    .select('rosters')
     .exec((err, participant) => {
       console.log(participant);
       if (!participant) {
@@ -112,12 +112,8 @@ const rostersReadOne = (req, res) => {
       }
       if (participant.rosters && participant.rosters.length > 0) {
         console.log("Roster read1");
-        //const roster = participant.rosters.id(req.params.rosterid);
-        const roster = participant;
-        console.log(participant);
-        console.log(roster);
-        //console.log(participant.rosters.id);
-        //console.log(req.params.rosterid);
+        const roster = participant.rosters;
+        
         console.log(roster);
         if (!roster) {
           console.log(roster);
@@ -127,11 +123,12 @@ const rostersReadOne = (req, res) => {
         } else {
           const response = {
             participant: {
-              school: participant.school,
-              id: req.params.participantid
+             school: participant.school,
+             id: req.params.participantid
             },
             roster
           };  
+          console.log("response is:", response);
             return res
               .status(200)
               .json(response);
