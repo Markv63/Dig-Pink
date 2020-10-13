@@ -7,7 +7,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 console.log('NODE_ENV is set to ', process.env.NODE_ENV);
-console.log('dburl=', dbURL);
+
 const connect = () => {
   setTimeout(() => mongoose.connect(dbURL, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true }), 1000);
 }
@@ -34,6 +34,33 @@ if (process.platform === 'win32') {
     process.emit("SIGINT");
   });
 }
+
+/*const connect = () => {
+  setTimeout(() => mongoose.connect(dbURL, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true }), 1000);
+}
+
+mongoose.connection.on('connected', () => {
+  console.log('Mongoose is connected');
+});
+
+mongoose.connection.on('error', err => {
+  console.log('Mongoose connection error: ' + err);
+  return connect();
+});
+
+mongoose.connection.on('disconnected', () => {
+  console.log('Mongoose is disconnected');
+});
+
+if (process.platform === 'win32') {
+  const rl = readLine.createInterface({
+    input: process.stdin,
+    output: process.stdout
+  });
+  rl.on ('SIGINT', () => {
+    process.emit("SIGINT");
+  });
+}*/
 
 const gracefulShutdown = (msg, callback) => {
   mongoose.connection.close( () => {
