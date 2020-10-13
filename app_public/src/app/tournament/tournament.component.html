@@ -1,8 +1,7 @@
 <div class="card" *ngFor="let tournament of tournaments | earliestFirst"> 
   <div class = "card-block">
     <h4>
-      <!-- a href="/tournments/{{tournaments.school}}">{{tournaments.school}}</a -->  
-     
+           
       &nbsp;
       &nbsp;
       &nbsp;
@@ -19,7 +18,7 @@
       &nbsp;&nbsp;&nbsp;
       <span class="tournamentVisitor">{{tournament.visitor}}</span>
       &nbsp;&nbsp;&nbsp;  
-      <span class="tournamentGym">@ {{tournament.gym}}</span>
+      <span class="tournamentGym">at {{tournament.gym}}</span>
       <!-- /div -->
     </h4>    
   </div>
