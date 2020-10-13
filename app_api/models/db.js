@@ -7,7 +7,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 console.log('NODE_ENV is set to ', process.env.NODE_ENV);
-
+console.log('dburl=', dbURL);
 const connect = () => {
   setTimeout(() => mongoose.connect(dbURL, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true }), 1000);
 }
