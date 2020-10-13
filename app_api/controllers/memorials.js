@@ -148,7 +148,6 @@ const memorialsDeleteOne = (req, res) => {
   }
 };
 
-console.log("api cont memor display 2")
 module.exports = {
   memorialsCreate,
   memorialsUpdateOne,

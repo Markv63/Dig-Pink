@@ -43,12 +43,11 @@ const doAddRoster = (req, res, participant) => {
 
 
 // revamped to dump all rosters, no array.  made copy of original module.
-console.log("controller rosters.js");
 
 const rostersCreate = (req, res) => {
   
   const participantId = req.params.participantid;
-  console.log(participantId);
+  
   if (participantId) {
     Loc
       .findById(participantId)
