@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 const { Locked } = require('http-errors');
 const Loc = mongoose.model('Tournament');  
 
-console.log("api control tourn display 1");
+console.log("api control tourn entry");
 
 const doAddTournament = (req, res, tournament) => {
-  console.log("api cont mem do add 1");
+   
   if (!tournament) {
     res
       .status(404)
@@ -20,7 +20,7 @@ const doAddTournament = (req, res, tournament) => {
       visitor,
       gym
     });
-    console.log("mem api do add 2");
+     
     tournament.save((err, tournament) => {
       if (err) {
         res
@@ -128,8 +128,6 @@ const tournamentsUpdateOne = (req, res) => {
   );
 };     
     
-  
-
 
 const tournamentsDeleteOne = (req, res) => {  
   const {tournamentid} = req.params;

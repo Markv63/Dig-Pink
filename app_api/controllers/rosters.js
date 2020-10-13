@@ -59,7 +59,7 @@ const rostersCreate = (req, res) => {
            .status(400)
            .json(err);
         } else {
-          console.log("participant", participant);
+          
           doAddRoster(req, res, participant);
         }
       });
@@ -93,8 +93,7 @@ const getRosters = (req, res) => {
 } 
   
 const rostersReadOne = (req, res) => { 
-  console.log("api controller loc display 6");
-  console.log("participantid", req.params.participantid);
+ 
   Loc 
     .findById(req.params.participantid)
     .exec((err, participant) => {
@@ -111,12 +110,12 @@ const rostersReadOne = (req, res) => {
           .json(err);
       }
       if (participant.rosters && participant.rosters.length > 0) {
-        console.log("Roster read1");
+       
         const roster = participant.rosters;
         
-        console.log(roster);
+        
         if (!roster) {
-          console.log(roster);
+           
           return res
             .status(404)
             .json({"message": "roster not found 2"});
@@ -128,7 +127,7 @@ const rostersReadOne = (req, res) => {
             },
             roster
           };  
-          console.log("response is:", response);
+           
             return res
               .status(200)
               .json(response);

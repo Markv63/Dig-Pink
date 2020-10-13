@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const { Locked } = require('http-errors');
 const Loc = mongoose.model('Participant');  
 
-console.log("api control part display 1");
+console.log("api control part entry");
 //non impact change
 
 const participantsCreate = (req, res) => {
@@ -44,7 +44,7 @@ const getParticipants = (req, res) => {
 } 
  
 const participantsReadOne = (req, res) => { 
-  console.log("part read one");
+ 
   Loc 
      .findById(req.params.participantsid)
      .exec((err, participant) => {
@@ -65,7 +65,7 @@ const participantsReadOne = (req, res) => {
      }});
  }; 
  
-console.log("api control part display 3");
+ 
 const participantsUpdateOne = (req, res) => {  
   if (!req.params.schoolid) {
     return res

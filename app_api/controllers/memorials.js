@@ -7,7 +7,7 @@ console.log("api cont memor entry");
  // non impact change
  
 const doAddMemorial = (req, res, memorial) => {
-  console.log("api cont mem do add 1");
+  
   if (!memorial) {
     res
       .status(404)
@@ -19,7 +19,7 @@ const doAddMemorial = (req, res, memorial) => {
       player,
       school
     });
-    console.log("mem api do add 2");
+     
     memorial.save((err, memorial) => {
       if (err) {
         res
@@ -36,10 +36,7 @@ const doAddMemorial = (req, res, memorial) => {
 
 const memorialsCreate = (req, res) => {
 
- /* console.log("api cont mem create 1");*/
-
- console.log("api cont mem create 1");
-  Loc.create({
+   Loc.create({
     honor:    req.body.honor,
     player:   req.body.player,
     school:   req.body.school,
@@ -55,29 +52,6 @@ const memorialsCreate = (req, res) => {
      };
   });
 };
- /*const memorialid = req.parms.memorialid;
- if (memorialid) { 
-    Loc
-      .findById(memorialid)
-      .select('memorials')
-      .exec(( err, memorial) => {
-        if (err) {
-          res
-            .status(400)
-            .json(err);
-        } else {
-          doAddMemorial(req, res, memorial);
-        }
-    });       
-  } else {
-    res
-      .status(404)
-      .json({"message": "Memorial not created"});
-  }
-}; */
-
-  
-
 
 const getMemorials = (req, res) => {
   Loc
@@ -111,10 +85,10 @@ const memorialsUpdateOne = (req, res) => {
       });
   }
   Loc
-  //console.log("app control mem update 3")
+   
     .findById(req.params.memorialid)
     .select()
-    //console.log("app control mem update 4")
+    
     .exec((err, memorial) => {
       if (!memorial) {
         return res
